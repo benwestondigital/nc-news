@@ -2,7 +2,7 @@ import '../css/Comment.css';
 
 const Comment = () => {
     return (
-        <div>
+        <div className='Comment'>
             
         </div>
     );

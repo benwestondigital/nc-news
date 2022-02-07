@@ -1,7 +1,7 @@
 import '../css/TopicHeader.css';
 
 const TopicHeader = () => {
-  return <div></div>;
+  return <div className='TopicHeader'></div>;
 };
 
 export default TopicHeader;
