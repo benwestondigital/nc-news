@@ -5,7 +5,6 @@ import Article from '../components/Article';
 const ArticlesContainer = () => {
   return (
     <div className="ArticlesContainer">
-      <p>ArticlesContainer</p>
       <Nav />
       <Article />
     </div>

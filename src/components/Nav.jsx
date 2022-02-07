@@ -1,13 +1,21 @@
 import '../css/Nav.css';
-import { getTopics } from '../utils/api';
+import { getTopics, getArticle } from '../utils/api';
 import { useState, useEffect } from 'react';
 
 const Nav = () => {
   const [topics, setTopics] = useState([]);
+  const [sortBy, setSortBy] = useState([]);
 
   useEffect(() => {
+    // refactor to async/await
     return getTopics().then(res => {
       setTopics(res);
+    });
+  }, []);
+
+  useEffect(() => {
+    return getArticle().then(res => {
+      setSortBy(Object.keys(res));
     });
   }, []);
 
@@ -22,8 +30,12 @@ const Nav = () => {
         </select>
       </form>
       <form>
-        <label htmlFor="sortby">Sort Articles By:</label>
-        <select id="sortby"></select>
+        <label htmlFor="sortby">Sort:</label>
+        <select id="sortby">
+          {sortBy.map(sortItem => {
+            return <option key={sortItem}>{sortItem}</option>;
+          })}
+        </select>
       </form>
     </div>
   );
