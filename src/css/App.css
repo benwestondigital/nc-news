@@ -1,3 +1,29 @@
-.App {
-  text-align: center;
+/* Header */
+
+.Header {
+  background-color: #1a1a1b;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
+
+.Header__box {
+  border: 1px solid white;
+  width: 15%;
+  height: 6vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .Header__logo {
+
+}
+
+.Header__user {
+
+}
+ */
