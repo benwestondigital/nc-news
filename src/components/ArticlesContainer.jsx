@@ -19,6 +19,7 @@ const ArticlesContainer = () => {
     fetchArticles();
   }, []);
 
+
   return (
     <div className="ArticlesContainer">
       <Nav />

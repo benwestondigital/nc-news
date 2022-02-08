@@ -1,6 +1,7 @@
 import '../css/Article.css';
 import Votes from '../components/Votes';
 import { stringFormat, dateTimeFormat } from '../utils/utils';
+
 const Article = ({ data }) => {
   const { author, body, comment_count, created_at, title, topic, votes } = data;
   const { date, time } = dateTimeFormat(created_at);

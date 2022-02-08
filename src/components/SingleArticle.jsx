@@ -6,6 +6,7 @@ import { getSingleArticle } from '../utils/api';
 
 const SingleArticle = () => {
   const [article, setArticle] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const { article_id } = useParams();
 
   useEffect(() => {
@@ -13,17 +14,19 @@ const SingleArticle = () => {
       try {
         const singleArticle = await getSingleArticle(article_id);
         setArticle(singleArticle);
+        setIsLoading(false);
       } catch (err) {
         console.log(err);
       }
     };
-    fetchSingleArticle(article_id);
+    fetchSingleArticle();
   }, [article_id]);
 
+  if (isLoading) return <p>Loading...</p>
   return (
     <div>
-      { <Article data={article} />}
-      <CommentsContainer />
+      <Article data={article}/>
+      <CommentsContainer articleId={article_id} />
     </div>
   );
 };
