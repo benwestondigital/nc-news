@@ -1,14 +1,14 @@
+import { useState, useEffect } from 'react';
 import '../css/Nav.css';
 import { getTopics, getArticleSort } from '../utils/api';
-import { useState, useEffect } from 'react';
-import { menuFormat } from '../utils/utils';
+import { stringFormat } from '../utils/utils';
 
 const Nav = () => {
   const [topics, setTopics] = useState([]);
   const [sortBy, setSortBy] = useState([]);
 
   useEffect(() => {
-    const fetchMenus= async () => {
+    const fetchMenus = async () => {
       try {
         const apiTopics = await getTopics();
         const apiArticleKeys = await getArticleSort();
@@ -17,7 +17,7 @@ const Nav = () => {
       } catch (err) {
         console.log(err);
       }
-    }
+    };
     fetchMenus();
   }, []);
 
@@ -27,15 +27,23 @@ const Nav = () => {
         <label htmlFor="topics">Topics:</label>
         <select className="Nav__select" id="topics">
           {topics.map(topic => {
-            return <option key={topic.slug}>{menuFormat(topic.slug)}</option>;
+            return (
+              <option key={topic.slug} name={topic.slug}>
+                {stringFormat(topic.slug)}
+              </option>
+            );
           })}
         </select>
       </form>
       <form>
         <label htmlFor="sortby">Sort:</label>
         <select className="Nav__select" id="sortby">
-          {sortBy.map(sortItem => {
-            return <option key={sortItem}>{menuFormat(sortItem)}</option>;
+          {sortBy.map(sort => {
+            return (
+              <option key={sort} name={sort}>
+                {stringFormat(sort)}
+              </option>
+            );
           })}
         </select>
       </form>

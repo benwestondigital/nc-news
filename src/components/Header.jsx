@@ -10,7 +10,7 @@ const Header = () => {
         </Link>
       </div>
       <h1>NC News</h1>
-      <div className="Header__box Header__user"><i class="far fa-user"></i></div>
+      <div className="Header__box Header__user"><i className="far fa-user"></i></div>
     </div>
   );
 };
