@@ -3,7 +3,7 @@ import '../css/Nav.css';
 import { getTopics, getArticleSort } from '../utils/api';
 import { stringFormat } from '../utils/utils';
 
-const Nav = () => {
+const Nav = ({setActiveTopic}) => {
   const [topics, setTopics] = useState([]);
   const [sortBy, setSortBy] = useState([]);
 
@@ -21,14 +21,20 @@ const Nav = () => {
     fetchMenus();
   }, []);
 
+
+
   return (
     <div className="Nav">
       <form>
         <label htmlFor="topics">Topics:</label>
-        <select className="Nav__select" id="topics">
+        <select
+          onChange={e => setActiveTopic(e.target.value)}
+          className="Nav__select"
+          id="topics"
+        ><option value={''}>All</option>
           {topics.map(topic => {
             return (
-              <option key={topic.slug} name={topic.slug}>
+              <option key={topic.slug} value={topic.slug} name={topic.slug}>
                 {stringFormat(topic.slug)}
               </option>
             );

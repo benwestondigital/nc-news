@@ -6,23 +6,25 @@ import { getArticles } from '../utils/api';
 
 const ArticlesContainer = () => {
   const [articles, setArticles] = useState([]);
+  const [activeTopic, setActiveTopic] = useState('');
 
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const apiArticles = await getArticles();
+        const apiArticles = await getArticles(activeTopic);
         setArticles(apiArticles);
       } catch (err) {
         console.log(err);
       }
     };
     fetchArticles();
-  }, []);
-
+  }, [activeTopic]);
 
   return (
     <div className="ArticlesContainer">
-      <Nav />
+      <Nav
+        setActiveTopic={setActiveTopic}
+      />
       {articles.map(article => {
         return <Article key={article.article_id} data={article} />;
       })}
