@@ -26,7 +26,7 @@ const SingleArticle = () => {
   return (
     <div>
       <Article data={article}/>
-      <CommentsContainer articleId={article_id} />
+      <CommentsContainer article_id={article_id} />
     </div>
   );
 };

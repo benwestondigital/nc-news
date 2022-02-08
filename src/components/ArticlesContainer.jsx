@@ -6,24 +6,28 @@ import { getArticles } from '../utils/api';
 
 const ArticlesContainer = () => {
   const [articles, setArticles] = useState([]);
-  const [activeTopic, setActiveTopic] = useState('');
+  const [searchQueries, setSearchQueries] = useState({
+    topic: '',
+    sort_by: 'article_id',
+  });
 
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const apiArticles = await getArticles(activeTopic);
+        const apiArticles = await getArticles(searchQueries);
         setArticles(apiArticles);
       } catch (err) {
         console.log(err);
       }
     };
     fetchArticles();
-  }, [activeTopic]);
+  }, [searchQueries]);
 
   return (
     <div className="ArticlesContainer">
       <Nav
-        setActiveTopic={setActiveTopic}
+        searchQueries={searchQueries}
+        setSearchQueries={setSearchQueries}
       />
       {articles.map(article => {
         return <Article key={article.article_id} data={article} />;

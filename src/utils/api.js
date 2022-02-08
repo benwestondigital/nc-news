@@ -19,14 +19,16 @@ export async function getSingleArticle(article_id) {
   return article;
 }
 
-export async function getArticles(topic) {
+export async function getArticles(queries) {
   const articles = (
     await newsApi.get('/articles', {
-      params: {
-        topic: topic,
-      },
+      params: queries,
     })
   ).data.articles;
   return articles;
 }
 
+export async function getCommentsByArticleId(article_id) {
+  const comments = (await newsApi.get(`/articles/${article_id}/comments`)).data.comments;
+  return comments;
+}

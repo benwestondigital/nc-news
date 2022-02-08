@@ -3,7 +3,7 @@ import '../css/Nav.css';
 import { getTopics, getArticleSort } from '../utils/api';
 import { stringFormat } from '../utils/utils';
 
-const Nav = ({setActiveTopic}) => {
+const Nav = ({ setSearchQueries, searchQueries }) => {
   const [topics, setTopics] = useState([]);
   const [sortBy, setSortBy] = useState([]);
 
@@ -21,17 +21,30 @@ const Nav = ({setActiveTopic}) => {
     fetchMenus();
   }, []);
 
+  const handleTopicChange = e => {
+    setSearchQueries({
+      ...searchQueries,
+      topic: e.target.value,
+    });
+  };
 
+  const handleSortChange = e => {
+    setSearchQueries({
+      ...searchQueries,
+      sort_by: e.target.value,
+    })
+  }
 
   return (
     <div className="Nav">
       <form>
         <label htmlFor="topics">Topics:</label>
         <select
-          onChange={e => setActiveTopic(e.target.value)}
+          onChange={handleTopicChange}
           className="Nav__select"
           id="topics"
-        ><option value={''}>All</option>
+        >
+          <option value={''}>All</option>
           {topics.map(topic => {
             return (
               <option key={topic.slug} value={topic.slug} name={topic.slug}>
@@ -43,10 +56,14 @@ const Nav = ({setActiveTopic}) => {
       </form>
       <form>
         <label htmlFor="sortby">Sort:</label>
-        <select className="Nav__select" id="sortby">
+        <select
+          onChange={handleSortChange}
+          className="Nav__select"
+          id="sortby"
+        >
           {sortBy.map(sort => {
             return (
-              <option key={sort} name={sort}>
+              <option key={sort} value={sort} name={sort}>
                 {stringFormat(sort)}
               </option>
             );
