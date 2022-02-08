@@ -9,7 +9,7 @@ const newsApi = axios.create({
       return topics;
   }
 
-  export async function getArticle() {
-      const article = (await newsApi.get('/articles/1')).data.article;
-      return article;
+  export async function getArticleSort() {
+      const article = (await newsApi.get('/articles')).data.articles;
+      return Object.keys(article[0]);
   }
