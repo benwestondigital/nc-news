@@ -4,5 +4,9 @@
     align-items: center;
     justify-content: space-around;
     height: 6vh;
-    border: 1px solid red;
+    background-color: #DAE0E6;
+}
+
+.Nav__select {
+    margin-left: 0.5em;
 }

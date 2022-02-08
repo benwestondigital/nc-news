@@ -14,13 +14,16 @@
 }
 
 .Header__box {
-  border: 1px solid white;
   width: 15%;
   height: 6vh;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.far {
+  font-size: 3rem;
 }
 
 /* .Header__logo {

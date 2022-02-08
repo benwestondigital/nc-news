@@ -6,11 +6,11 @@ const Header = () => {
     <div className="Header">
       <div className="Header__box Header__logo">
         <Link className="Header__text-link" to="/">
-          Logo
+        <i className="far fa-newspaper"></i>
         </Link>
       </div>
       <h1>NC News</h1>
-      <div className="Header__box Header__user">User</div>
+      <div className="Header__box Header__user"><i class="far fa-user"></i></div>
     </div>
   );
 };
