@@ -4,6 +4,7 @@
 
 .App {
   display: grid;
+  background-color:#DAE0E6;
   grid-template-columns: 100%;
   grid-template-rows: min-content auto;
   grid-template-areas:

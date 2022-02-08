@@ -1,6 +1,6 @@
 import '../css/Votes.css';
 
-const Votes = ({votes}) => {
+const Votes = ({ votes }) => {
   return (
     <div className="Votes">
       <i className="fas fa-arrow-circle-up"></i>
