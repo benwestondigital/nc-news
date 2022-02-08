@@ -1,8 +1,15 @@
 .Votes {
     display: flex;
+    padding: 0.2em 0.4em;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
-    border: 1px solid green;
-    width: auto;
+    justify-content: center;
+    border: 1px solid #DAE0E6;
+    border-radius: 40%;
+    width: 60px;
+    height: 30px;
+}
+
+.Votes p {
+    padding: 0.3em;
 }

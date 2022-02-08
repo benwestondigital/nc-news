@@ -1,6 +1,5 @@
 .ArticlesContainer {
     grid-area: articles;
-    border: 1px solid red;
     height: 80vh;
     width: auto;
 }

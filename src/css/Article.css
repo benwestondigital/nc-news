@@ -1,3 +1,46 @@
-Article {
-    border: 1px solid purple;
+.Article {
+  border-bottom: 2px solid #DAE0E6;
+  margin: 0em 0.25em;
+  padding: 0em 0.25em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: min-content auto auto auto;
+  grid-template-areas:
+    'author topic datetime'
+    'title title title'
+    'body body body'
+    'votes . commentcount';
+}
+
+.Article__author {
+    grid-area: author;
+    font-size: 0.9em;
+}
+
+.Article__topic {
+    grid-area: topic;
+    font-size: 1.1em;
+}
+
+.Article__title {
+    grid-area: title;
+    font-size: 1.2em;
+}
+
+.Article__body {
+    grid-area: body;
+}
+
+.Article__commentcount {
+    grid-area: commentcount;
+    font-size: 0.9em;
+}
+
+.Article__datetime {
+    grid-area: datetime;
+    font-size: 0.9em;
+}
+
+.Article__votes {
+    grid-area: votes;
 }
