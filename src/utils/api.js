@@ -64,6 +64,14 @@ export async function getCommentsByArticleId(article_id) {
   }
 }
 
+export async function postComment(article_id) {
+  try {
+    
+  } catch (err) {
+    return err;
+  }
+}
+
 // Vote API calls
 export async function patchArticleVote(article_id, vote) {
   try {

@@ -3,9 +3,8 @@ import Votes from '../components/Votes';
 import { stringFormat, dateTimeFormat } from '../utils/utils';
 import { Link } from 'react-router-dom';
 
-
 const ArticlePreview = ({ data }) => {
-  const { body, comment_count, created_at, title, topic, votes, article_id } =
+  const { comment_count, created_at, title, topic, votes, article_id } =
     data;
   const { date, time } = dateTimeFormat(created_at);
 

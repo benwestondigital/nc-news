@@ -1,5 +1,6 @@
 import '../css/CommentsContainer.css';
 import Comment from './Comment';
+import PostComment from './PostComment';
 import { getCommentsByArticleId } from '../utils/api';
 import { useState, useEffect } from 'react';
 
@@ -20,15 +21,10 @@ const CommentsContainer = ({ article_id }) => {
 
   return (
     <div className="CommentContainer">
-      <form>
-        <label htmlFor="addComment">Comment:</label>
-        <input placeholder="Leave a comment" id="addComment"></input>
-        <button>Add Comment</button>
-      </form>
+      <PostComment />
       {comments.map(comment => {
-        return <Comment key={comment.comment_id} data={comment} />
+        return <Comment key={comment.comment_id} data={comment} />;
       })}
-      
     </div>
   );
 };
