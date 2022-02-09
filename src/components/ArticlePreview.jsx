@@ -10,18 +10,16 @@ const ArticlePreview = ({ data }) => {
   const { date, time } = dateTimeFormat(created_at);
 
   return (
-    <div className="ArticlePreview">
+    <Link to={`/articles/${article_id}`} className="ArticlePreview">
       <h3 className="ArticlePreview__topic">{stringFormat(topic)}</h3>
-        <Link className="ArticlePreview--link" to={`/articles/${article_id}`}>
       <h2 className="ArticlePreview__title">{title}</h2>
       <p className="ArticlePreview__body">{body.slice(0, 100)}...</p>
       <p className="ArticlePreview__commentcount">{comment_count} Comments</p>
       <p className="ArticlePreview__datetime">
         {date} {time}
       </p>
-      </Link>
-      <Votes className="ArticlePreview__votes" article_id={article_id} votes={votes} />
-    </div>
+      <Votes article_id={article_id} votes={votes} />
+    </Link>
   );
 };
 

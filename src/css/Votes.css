@@ -8,6 +8,7 @@
   border-radius: 40%;
   width: 60px;
   height: 30px;
+  grid-area: votes;
 }
 
 .Votes p {

@@ -3,6 +3,8 @@
     margin: 0.25em 0em;
     padding: 0em 0.5em;
     background-color: #fff;
+    color: inherit;
+    text-decoration: inherit;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: min-content auto auto auto;
@@ -40,13 +42,4 @@
   .ArticlePreview__datetime {
     grid-area: datetime;
     font-size: 0.9em;
-  }
-  
-  .ArticlePreview__votes {
-    grid-area: votes;
-  }
-  
-  .ArticlePreview--link {
-    color: inherit;
-    text-decoration: inherit;
   }
