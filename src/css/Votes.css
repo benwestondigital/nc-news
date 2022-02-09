@@ -15,13 +15,13 @@
 }
 
 .fa-arrow-circle-up {
-  transition: color 0.2s ease-out;
+  transition: color 0.1s ease-out;
 }
 .fa-arrow-circle-up:active {
   color: rgb(9, 155, 9);
 }
 .fa-arrow-circle-down {
-  transition: color 0.2s ease-out;
+  transition: color 0.1s ease-out;
 }
 .fa-arrow-circle-down:active {
   color: rgb(218, 52, 30);

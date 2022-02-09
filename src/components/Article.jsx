@@ -3,7 +3,7 @@ import Votes from '../components/Votes';
 import { stringFormat, dateTimeFormat } from '../utils/utils';
 
 const Article = ({ data }) => {
-  const { author, body, comment_count, created_at, title, topic, votes } = data;
+  const { author, body, comment_count, created_at, title, topic, votes, article_id} = data;
   const { date, time } = dateTimeFormat(created_at);
 
   return (
@@ -18,7 +18,7 @@ const Article = ({ data }) => {
       <p className="Article__datetime">
         {date} {time}
       </p>
-      <Votes className="Article__votes" votes={votes} />
+      <Votes className="Article__votes" article_id={article_id}votes={votes} />
     </div>
   );
 };

@@ -11,7 +11,6 @@ const Comment = ({data}) => {
             <p>{author}</p>
             <p>{body}</p>
             <p>{date} {time}</p>
-            <Votes votes={votes}/>
             {/* if user === comment user then show delete button */}
         </div>
     );

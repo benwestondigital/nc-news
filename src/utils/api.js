@@ -4,6 +4,7 @@ const newsApi = axios.create({
   baseURL: 'https://ben-reddit-project.herokuapp.com/api',
 });
 
+// Topic API calls
 export async function getTopics() {
   try {
     const {
@@ -15,6 +16,7 @@ export async function getTopics() {
   }
 }
 
+// Article API calls
 export async function getArticleSort() {
   try {
     const {
@@ -50,12 +52,27 @@ export async function getArticles(queries) {
   }
 }
 
+// Comments API calls
 export async function getCommentsByArticleId(article_id) {
   try {
     const {
       data: { comments },
     } = await newsApi.get(`/articles/${article_id}/comments`);
     return comments;
+  } catch (err) {
+    return err;
+  }
+}
+
+// Vote API calls
+export async function patchArticleVote(article_id, vote) {
+  try {
+    const {
+      data: { article },
+    } = await newsApi.patch(`/articles/${article_id}`, {
+      inc_votes: vote,
+    });
+    return article;
   } catch (err) {
     return err;
   }
