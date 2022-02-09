@@ -5,30 +5,58 @@ const newsApi = axios.create({
 });
 
 export async function getTopics() {
-  const topics = (await newsApi.get('/topics')).data.topics;
-  return topics;
+  try {
+    const {
+      data: { topics },
+    } = await newsApi.get('/topics');
+    return topics;
+  } catch (err) {
+    return err;
+  }
 }
 
 export async function getArticleSort() {
-  const article = (await newsApi.get('/articles')).data.articles;
-  return Object.keys(article[0]);
+  try {
+    const {
+      data: { articles },
+    } = await newsApi.get('/articles');
+    return Object.keys(articles[0]);
+  } catch (err) {
+    return err;
+  }
 }
 
 export async function getSingleArticle(article_id) {
-  const article = (await newsApi.get(`/articles/${article_id}`)).data.article;
-  return article;
+  try {
+    const {
+      data: { article },
+    } = await newsApi.get(`/articles/${article_id}`);
+    return article;
+  } catch (err) {
+    return err;
+  }
 }
 
 export async function getArticles(queries) {
-  const articles = (
-    await newsApi.get('/articles', {
+  try {
+    const {
+      data: { articles },
+    } = await newsApi.get('/articles', {
       params: queries,
-    })
-  ).data.articles;
-  return articles;
+    });
+    return articles;
+  } catch (err) {
+    return err;
+  }
 }
 
 export async function getCommentsByArticleId(article_id) {
-  const comments = (await newsApi.get(`/articles/${article_id}/comments`)).data.comments;
-  return comments;
+  try {
+    const {
+      data: { comments },
+    } = await newsApi.get(`/articles/${article_id}/comments`);
+    return comments;
+  } catch (err) {
+    return err;
+  }
 }
