@@ -22,12 +22,17 @@ const SingleArticle = () => {
     fetchSingleArticle();
   }, [article_id]);
 
-  if (isLoading) return <p>Loading...</p>
   return (
-    <div>
-      <Article data={article}/>
-      <CommentsContainer article_id={article_id} />
-    </div>
+    <>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <div>
+          <Article data={article} />
+          <CommentsContainer article_id={article_id} />
+        </div>
+      )}
+    </>
   );
 };
 
