@@ -8,12 +8,10 @@ const Article = ({ data }) => {
 
   return (
     <div className="Article">
-      {/* don't show author on articlecontainer */}
       <p className="Article__author">{author}</p>
       <h3 className="Article__topic">{stringFormat(topic)}</h3>
       <h2 className="Article__title">{title}</h2>
-      {/* show full body inside single article */}
-      <p className="Article__body">{body.slice(0, 100)}...</p>
+      <p className="Article__body">{body}</p>
       <p className="Article__commentcount">{comment_count} Comments</p>
       <p className="Article__datetime">
         {date} {time}

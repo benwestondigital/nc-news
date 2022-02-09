@@ -1,6 +1,7 @@
 .Votes {
   display: flex;
   padding: 0.2em 0.4em;
+  margin: 0.1em 0.1em;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -20,10 +21,12 @@
 }
 .fa-arrow-circle-up:active {
   color: rgb(9, 155, 9);
+  transform: translateY(2px);
 }
 .fa-arrow-circle-down {
   transition: color 0.1s ease-out;
 }
 .fa-arrow-circle-down:active {
   color: rgb(218, 52, 30);
+  transform: translateY(2px);
 }
