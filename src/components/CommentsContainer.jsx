@@ -22,7 +22,8 @@ const CommentsContainer = ({ article_id }) => {
     <div className="CommentContainer">
       <form>
         <label htmlFor="addComment">Comment:</label>
-        <input id="addComment"></input>
+        <input placeholder="Leave a comment" id="addComment"></input>
+        <button>Add Comment</button>
       </form>
       {comments.map(comment => {
         return <Comment key={comment.comment_id} data={comment} />

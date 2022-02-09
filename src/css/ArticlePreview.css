@@ -37,9 +37,16 @@
   .ArticlePreview__commentcount {
     grid-area: commentcount;
     font-size: 0.9em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
   }
   
   .ArticlePreview__datetime {
     grid-area: datetime;
     font-size: 0.9em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
   }
+  
