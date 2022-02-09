@@ -11,7 +11,7 @@ export const dateTimeFormat = created_at => {
 
   const date = `${format.getDate()}/${
     format.getMonth() + 1
-  }/${format.getFullYear()}`;
+  }/${format.getFullYear().toString().substr(-2)}`;
 
   const addZero = timeUnit => {
     if (timeUnit < 10) {
