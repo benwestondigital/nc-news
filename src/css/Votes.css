@@ -1,15 +1,28 @@
 .Votes {
-    display: flex;
-    padding: 0.2em 0.4em;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #DAE0E6;
-    border-radius: 40%;
-    width: 60px;
-    height: 30px;
+  display: flex;
+  padding: 0.2em 0.4em;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #dae0e6;
+  border-radius: 40%;
+  width: 60px;
+  height: 30px;
 }
 
 .Votes p {
-    padding: 0.3em;
+  padding: 0.3em;
+}
+
+.fa-arrow-circle-up {
+  transition: color 0.2s ease-out;
+}
+.fa-arrow-circle-up:active {
+  color: rgb(9, 155, 9);
+}
+.fa-arrow-circle-down {
+  transition: color 0.2s ease-out;
+}
+.fa-arrow-circle-down:active {
+  color: rgb(218, 52, 30);
 }
