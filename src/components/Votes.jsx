@@ -7,6 +7,7 @@ const Votes = ({ article_id, votes }) => {
   const [isError, setIsError] = useState(null);
 
   const handleVoteClick = e => {
+    e.preventDefault();
     const [up, down] = [1, -1];
     let sentVote = 0;
     e.target.className.includes('up') ? (sentVote = up) : (sentVote = down);
