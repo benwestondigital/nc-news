@@ -6,14 +6,14 @@ import { getSingleArticle } from '../utils/api';
 
 const SingleArticle = () => {
   const [article, setArticle] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(null);
   const { article_id } = useParams();
 
   useEffect(() => {
     const fetchSingleArticle = async () => {
       try {
-        setIsError(false)
+        setIsError(false);
         setIsLoading(true);
         const singleArticle = await getSingleArticle(article_id);
         setArticle(singleArticle);
@@ -26,17 +26,18 @@ const SingleArticle = () => {
     fetchSingleArticle();
   }, [article_id]);
 
-  return (
+  if (isError) {
+    return <p>Something went wrong...</p>;
+  }
+
+  return isLoading ? (
+    <p>Loading...</p>
+  ) : (
     <>
-    {isError} && <p>Something went wrong...</p>
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <div>
-          <Article data={article} />
-          <CommentsContainer article_id={article_id} />
-        </div>
-      )}
+      <div>
+        <Article data={article} />
+        <CommentsContainer article_id={article_id} />
+      </div>
     </>
   );
 };

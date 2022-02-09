@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import '../css/ArticlesContainer.css';
 import Nav from '../components/Nav';
-import Article from '../components/Article';
+import ArticlePreview from '../components/ArticlePreview';
 import { getArticles } from '../utils/api';
 
 const ArticlesContainer = () => {
@@ -25,12 +25,9 @@ const ArticlesContainer = () => {
 
   return (
     <div className="ArticlesContainer">
-      <Nav
-        searchQueries={searchQueries}
-        setSearchQueries={setSearchQueries}
-      />
+      <Nav searchQueries={searchQueries} setSearchQueries={setSearchQueries} />
       {articles.map(article => {
-        return <Article key={article.article_id} data={article} />;
+        return <ArticlePreview key={article.article_id} data={article} />;
       })}
     </div>
   );

@@ -1,0 +1,52 @@
+.ArticlePreview {
+    border-bottom: 2px solid #dae0e6;
+    margin: 0.25em 0em;
+    padding: 0em 0.5em;
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: min-content auto auto auto;
+    grid-template-areas:
+      'topic ... datetime'
+      'title title title'
+      'body body body'
+      'votes ... commentcount';
+  }
+  
+  .ArticlePreview__author {
+    grid-area: author;
+    font-size: 0.9em;
+  }
+  
+  .ArticlePreview__topic {
+    grid-area: topic;
+    font-size: 1.1em;
+  }
+  
+  .ArticlePreview__title {
+    grid-area: title;
+    font-size: 1.2em;
+  }
+  
+  .ArticlePreview__body {
+    grid-area: body;
+  }
+  
+  .ArticlePreview__commentcount {
+    grid-area: commentcount;
+    font-size: 0.9em;
+  }
+  
+  .ArticlePreview__datetime {
+    grid-area: datetime;
+    font-size: 0.9em;
+  }
+  
+  .ArticlePreview__votes {
+    grid-area: votes;
+  }
+  
+  .ArticlePreview--link {
+    color: inherit;
+    text-decoration: inherit;
+  }
