@@ -2,18 +2,20 @@ import { useState, useContext } from 'react';
 import { UserContext } from '../contexts/User';
 import { postComment } from '../utils/api';
 
-const PostComment = ({ article_id }) => {
+const PostComment = ({ article_id, setComments }) => {
   const [input, setInput] = useState('');
   const { user } = useContext(UserContext);
 
   const handleInput = e => {
     setInput(e.target.value);
-
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    postComment(article_id, user, input);
+    const newComment = await postComment(article_id, user, input);
+    setComments(currComments => {
+      return [newComment, ...currComments];
+    });
     setInput('');
   };
 

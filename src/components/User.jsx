@@ -67,8 +67,6 @@ const User = () => {
       <p>Comments Received: {userStats.commentCount}</p>
       <p>Karma: {userStats.voteCount}</p>
     </div>
-    //number of comments posted
-    //karma
   );
 };
 

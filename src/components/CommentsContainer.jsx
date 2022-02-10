@@ -17,13 +17,13 @@ const CommentsContainer = ({ article_id }) => {
       }
     };
     fetchComments();
-  }, [article_id, comments]);
+  }, [article_id]);
 
   return (
     <div id="comments" className="CommentContainer">
       <PostComment article_id={article_id} setComments={setComments}/>
       {comments.map(comment => {
-        return <Comment key={comment.comment_id} data={comment} />;
+        return <Comment key={comment.comment_id} data={comment} setComments={setComments} comments={comments} />;
       })}
     </div>
   );
