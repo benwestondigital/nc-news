@@ -3,7 +3,7 @@ import '../css/Nav.css';
 import { getTopics, getArticleSort } from '../utils/api';
 import { stringFormat } from '../utils/utils';
 
-const Nav = ({ setSearchQueries, searchQueries }) => {
+const Nav = ({ searchQueries,setSearchQueries }) => {
   const [topics, setTopics] = useState([]);
   const [sortBy, setSortBy] = useState([]);
 

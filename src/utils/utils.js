@@ -9,9 +9,10 @@ export const stringFormat = item => {
 export const dateTimeFormat = created_at => {
   const format = new Date(created_at);
 
-  const date = `${format.getDate()}/${
-    format.getMonth() + 1
-  }/${format.getFullYear().toString().slice(-2)}`;
+  const date = `${format.getDate()}/${format.getMonth() + 1}/${format
+    .getFullYear()
+    .toString()
+    .slice(-2)}`;
 
   const addZero = timeUnit => {
     if (timeUnit < 10) {

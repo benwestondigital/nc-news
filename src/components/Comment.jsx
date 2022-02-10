@@ -4,17 +4,18 @@ import '../css/Comment.css';
 import { dateTimeFormat } from '../utils/utils';
 import { deleteComment } from '../utils/api';
 
-const Comment = ({ data, setComments }) => {
+const Comment = ({
+  data: { comment_id, created_at, author, body },
+  setComments,
+}) => {
   const { user } = useContext(UserContext);
-  const { comment_id, created_at, author, body } = data;
   const { date, time } = dateTimeFormat(created_at);
   const renderDelete = () => author === user;
 
-  const handleDelete = () => {
-    deleteComment(comment_id);
-    //use setComments.filter to remove the relevant comment'
+  const handleDelete = async () => {
+    await deleteComment(comment_id);
     setComments(currComments => {
-      return currComments.filter(currComments.comment_id !== comment_id);
+      return [...currComments.filter(obj => obj.comment_id !== comment_id)];
     });
   };
 
