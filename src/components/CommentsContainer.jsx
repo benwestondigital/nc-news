@@ -17,7 +17,7 @@ const CommentsContainer = ({ article_id }) => {
       }
     };
     fetchComments();
-  }, [article_id]);
+  }, [article_id, comments]);
 
   return (
     <div className="CommentContainer">

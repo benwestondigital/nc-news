@@ -64,6 +64,14 @@ export async function getCommentsByArticleId(article_id) {
   }
 }
 
+export async function deleteComment(comment_id) {
+  try {
+    return await newsApi.delete(`/comments/${comment_id}`);
+  } catch (err) {
+    return err;
+  }
+}
+
 export async function postComment(article_id, user, body) {
   try {
     console.log(user, body);
