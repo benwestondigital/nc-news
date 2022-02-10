@@ -20,7 +20,7 @@ const CommentsContainer = ({ article_id }) => {
   }, [article_id, comments]);
 
   return (
-    <div className="CommentContainer">
+    <div id="comments" className="CommentContainer">
       <PostComment article_id={article_id} setComments={setComments}/>
       {comments.map(comment => {
         return <Comment key={comment.comment_id} data={comment} />;
