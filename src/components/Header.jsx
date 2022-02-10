@@ -4,13 +4,19 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   return (
     <div className="Header">
-      <div className="Header__box Header__logo">
-        <Link className="Header__text-link" to="/">
-        <i className="far fa-newspaper"></i>
+      <Link
+        className="Header__box Header__logo Header__text-link far fa-newspaper"
+        to="/"
+      ></Link>
+      <h1>
+        <Link to="/" className="Header__text-link">
+          NC News
         </Link>
-      </div>
-      <h1>NC News</h1>
-      <div className="Header__box Header__user"><i className="far fa-user"></i></div>
+      </h1>
+      <Link
+        to="/users"
+        className="Header__text-link Header__box Header__user far fa-user"
+      />
     </div>
   );
 };
