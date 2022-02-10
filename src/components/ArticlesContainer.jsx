@@ -5,6 +5,7 @@ import ArticlePreview from '../components/ArticlePreview';
 import { getArticles } from '../utils/api';
 
 const ArticlesContainer = () => {
+  //piece of state for Error
   const [articles, setArticles] = useState([]);
   const [searchQueries, setSearchQueries] = useState({
     topic: '',
@@ -18,6 +19,8 @@ const ArticlesContainer = () => {
         setArticles(apiArticles);
       } catch (err) {
         console.log(err);
+        //Error component
+        // <Error error={err}/>
       }
     };
     fetchArticles();

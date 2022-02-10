@@ -21,7 +21,7 @@ const CommentsContainer = ({ article_id }) => {
 
   return (
     <div className="CommentContainer">
-      <PostComment />
+      <PostComment article_id={article_id} setComments={setComments}/>
       {comments.map(comment => {
         return <Comment key={comment.comment_id} data={comment} />;
       })}

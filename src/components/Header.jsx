@@ -14,7 +14,7 @@ const Header = () => {
         </Link>
       </h1>
       <Link
-        to="/users"
+        to="/user"
         className="Header__text-link Header__box Header__user far fa-user"
       />
     </div>

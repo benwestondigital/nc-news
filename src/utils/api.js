@@ -64,9 +64,17 @@ export async function getCommentsByArticleId(article_id) {
   }
 }
 
-export async function postComment(article_id) {
+export async function postComment(article_id, user, body) {
   try {
-    
+    console.log(user, body);
+    const {
+      data: { comment },
+    } = await newsApi.post(`/articles/${article_id}/comments`, {
+      username: user,
+      body: body,
+    });
+    console.log(comment);
+    return comment;
   } catch (err) {
     return err;
   }

@@ -1,8 +1,8 @@
 import { useState, useContext } from 'react';
-import { postComment } from '../utils/api';
 import { UserContext } from '../contexts/User';
+import { postComment } from '../utils/api';
 
-const PostComment = ({ article_id, setComments }) => {
+const PostComment = ({ article_id }) => {
   const [input, setInput] = useState('');
   const { user } = useContext(UserContext);
 
