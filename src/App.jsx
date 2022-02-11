@@ -20,6 +20,7 @@ function App() {
             <Route path="/articles/:article_id" element={<SingleArticle />} />
             <Route path="/user" element={<User/>}/>
             <Route path="*" element={<ErrorPage><p>404 - Page Not Found</p></ErrorPage>}/>
+            <Route path="/articles/*" element={<ErrorPage><p>404 - Page Not Found</p></ErrorPage>}/>
           </Routes>
         </div>
       </BrowserRouter>

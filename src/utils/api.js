@@ -13,7 +13,7 @@ export async function getTopics() {
     } = await newsApi.get('/topics');
     return topics;
   } catch (err) {
-    return err;
+    throw err;
   }
 }
 
@@ -25,7 +25,7 @@ export async function getArticleSort() {
     } = await newsApi.get('/articles');
     return Object.keys(articles[0]);
   } catch (err) {
-    return err;
+    throw err;
   }
 }
 
@@ -33,10 +33,12 @@ export async function getSingleArticle(article_id) {
   try {
     const {
       data: { article },
-    } = await newsApi.get(`/articles/${article_id}`);
+    } = await newsApi.get(`/articles/${article_id}`, {
+      cancelToken: source.token,
+    });
     return article;
   } catch (err) {
-    return err;
+    throw err;
   }
 }
 
@@ -55,7 +57,7 @@ export async function getArticles(queries) {
     );
     return articles;
   } catch (err) {
-    return err;
+    throw err;
   }
 }
 
@@ -69,7 +71,7 @@ export async function getCommentsByArticleId(article_id) {
     });
     return comments;
   } catch (err) {
-    return err;
+    throw new Error(err);
   }
 }
 
@@ -77,7 +79,7 @@ export async function deleteComment(comment_id) {
   try {
     return await newsApi.delete(`/comments/${comment_id}`);
   } catch (err) {
-    return err;
+    throw err;
   }
 }
 
@@ -91,7 +93,7 @@ export async function postComment(article_id, user, body) {
     });
     return comment;
   } catch (err) {
-    return err;
+    throw err;
   }
 }
 
@@ -105,6 +107,6 @@ export async function patchArticleVote(article_id, vote) {
     });
     return article;
   } catch (err) {
-    return err;
+    throw err;
   }
 }
