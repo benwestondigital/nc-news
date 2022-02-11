@@ -3,7 +3,7 @@ const Spinner = require('react-spinkit');
 const LoadingSpinner = () => {
   return (
     <div className='Loading'>
-      <p>Loading...</p>
+      <p className='Loading__text'>Loading...</p>
       <Spinner name="circle" />
     </div>
   );
