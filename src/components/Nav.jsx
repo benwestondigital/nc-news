@@ -1,4 +1,6 @@
 import '../css/Nav.css';
+import ErrorPage from './ErrorPage';
+import LoadingSpinner from './Loading';
 import { useState, useEffect } from 'react';
 import { getTopics, getArticleSort } from '../utils/api';
 import { stringFormat } from '../utils/utils';
@@ -6,16 +8,21 @@ import { stringFormat } from '../utils/utils';
 const Nav = ({ searchQueries, setSearchQueries }) => {
   const [topics, setTopics] = useState([]);
   const [sortBy, setSortBy] = useState(['created_at']);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(null);
 
   useEffect(() => {
     const fetchMenus = async () => {
       try {
+        setIsError(false);
+        setIsLoading(true);
         const apiTopics = await getTopics();
         const apiArticleKeys = await getArticleSort();
         setTopics(apiTopics);
         setSortBy(apiArticleKeys);
+        setIsLoading(false);
       } catch (err) {
-        console.log(err);
+        setIsError(err);
       }
     };
     fetchMenus();
@@ -35,7 +42,13 @@ const Nav = ({ searchQueries, setSearchQueries }) => {
     });
   };
 
-  return (
+  if (isError) {
+    return <ErrorPage error={isError} />;
+  }
+
+  return isLoading ? (
+    <LoadingSpinner />
+  ) : (
     <div className="Nav">
       <form>
         <label htmlFor="topics">Topics:</label>

@@ -36,7 +36,7 @@ const SingleArticle = () => {
   ) : (
     <>
       <div>
-        <Article data={article} />
+        <Article data={article} setArticle={setArticle} />
         <CommentsContainer article_id={article_id} />
       </div>
     </>

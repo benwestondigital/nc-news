@@ -1,7 +1,8 @@
+import LoadingSpinner from './Loading';
+import ErrorPage from './ErrorPage';
 import { UserContext } from '../contexts/User';
 import { useContext, useEffect, useState } from 'react';
 import { getArticles } from '../utils/api';
-const Spinner = require('react-spinkit');
 
 const User = () => {
   const { user, setUser } = useContext(UserContext);
@@ -9,6 +10,7 @@ const User = () => {
   const [userData, setUserData] = useState([]);
   const [userStats, setUserStats] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(null);
 
   const changeLoggedInUser = ({ target: { value } }) => {
     setUser(value);
@@ -16,20 +18,33 @@ const User = () => {
 
   useEffect(() => {
     const fetchUniqueUsers = async () => {
-      const users = (await getArticles()).map(user => user.author);
-      setUniqueUsers([...new Set(users)]);
+      try {
+        setIsError(false);
+        setIsLoading(true);
+        const users = (await getArticles()).map(user => user.author);
+        setIsLoading(false);
+        setUniqueUsers([...new Set(users)]);
+      } catch (err) {
+        setIsError(err);
+      }
     };
     fetchUniqueUsers();
   }, []);
 
   useEffect(() => {
     const fetchLoggedInUserData = async () => {
-      setIsLoading(true);
-      const data = await getArticles();
-      const apiUser = data.filter(author => {
-        return author.author === user;
-      });
-      setUserData(apiUser);
+      try {
+        setIsError(false);
+        setIsLoading(true);
+        const data = await getArticles();
+        setIsLoading(false);
+        const apiUser = data.filter(author => {
+          return author.author === user;
+        });
+        setUserData(apiUser);
+      } catch (err) {
+        setIsError(err);
+      }
     };
     fetchLoggedInUserData();
   }, [user]);
@@ -49,16 +64,16 @@ const User = () => {
         commentCount,
         voteCount,
       });
-      setIsLoading(false);
     };
     workOutUserStats();
   }, [userData]);
 
+  if (isError) {
+    return <ErrorPage error={isError} />;
+  }
+
   return isLoading ? (
-    <>
-      <p>Loading...</p>
-      <Spinner name="circle" />
-    </>
+    <LoadingSpinner />
   ) : (
     <div>
       <h1>Hello {user}</h1>
