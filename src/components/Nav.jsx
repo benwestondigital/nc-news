@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
 import '../css/Nav.css';
+import { useState, useEffect } from 'react';
 import { getTopics, getArticleSort } from '../utils/api';
 import { stringFormat } from '../utils/utils';
 

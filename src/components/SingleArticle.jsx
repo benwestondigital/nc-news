@@ -1,10 +1,10 @@
-import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import Article from './Article';
 import ErrorPage from './ErrorPage';
+import LoadingSpinner from './Loading';
 import CommentsContainer from './CommentsContainer';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { getSingleArticle } from '../utils/api';
-const Spinner = require('react-spinkit');
 
 const SingleArticle = () => {
   const [article, setArticle] = useState([]);
@@ -21,7 +21,6 @@ const SingleArticle = () => {
         setArticle(singleArticle);
         setIsLoading(false);
       } catch (err) {
-        console.log(err);
         setIsError(err);
       }
     };
@@ -33,10 +32,7 @@ const SingleArticle = () => {
   }
 
   return isLoading ? (
-       <>
-      <p>Loading...</p>
-      <Spinner name="circle" />
-    </>
+    <LoadingSpinner />
   ) : (
     <>
       <div>

@@ -1,13 +1,15 @@
-import { useState, useEffect } from 'react';
 import '../css/ArticlesContainer.css';
-import Nav from '../components/Nav';
 import ArticlePreview from '../components/ArticlePreview';
-import { getArticles } from '../utils/api';
+import Nav from '../components/Nav';
 import ErrorPage from './ErrorPage';
+import LoadingSpinner from './Loading';
+import { useState, useEffect } from 'react';
+import { getArticles } from '../utils/api';
 
 const ArticlesContainer = () => {
-  //piece of state for Error
   const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(null);
   const [searchQueries, setSearchQueries] = useState({
     topic: '',
     sort_by: 'created_at',
@@ -16,17 +18,25 @@ const ArticlesContainer = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
+        setIsError(false);
+        setIsLoading(true);
         const apiArticles = await getArticles(searchQueries);
         setArticles(apiArticles);
+        setIsLoading(false);
       } catch (err) {
-        console.log(err);
-        <ErrorPage error={err}/>
+        setIsError(err);
       }
     };
     fetchArticles();
   }, [searchQueries]);
 
-  return (
+  if (isError) {
+    return <ErrorPage error={isError} />;
+  }
+
+  return isLoading ? (
+    <LoadingSpinner />
+  ) : (
     <div className="ArticlesContainer">
       <Nav searchQueries={searchQueries} setSearchQueries={setSearchQueries} />
       {articles.map(article => {

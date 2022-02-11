@@ -1,6 +1,6 @@
+import '../css/Comment.css';
 import { UserContext } from '../contexts/User';
 import { useContext } from 'react';
-import '../css/Comment.css';
 import { dateTimeFormat } from '../utils/utils';
 import { deleteComment } from '../utils/api';
 

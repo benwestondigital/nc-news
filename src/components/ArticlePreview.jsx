@@ -1,7 +1,7 @@
 import '../css/ArticlePreview.css';
 import Votes from '../components/Votes';
-import { stringFormat, dateTimeFormat } from '../utils/utils';
 import { Link } from 'react-router-dom';
+import { stringFormat, dateTimeFormat } from '../utils/utils';
 
 const ArticlePreview = ({
   data: { comment_count, created_at, title, topic, votes, article_id },

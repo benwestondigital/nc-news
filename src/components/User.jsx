@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../contexts/User';
+import { useContext, useEffect, useState } from 'react';
 import { getArticles } from '../utils/api';
 const Spinner = require('react-spinkit');
 

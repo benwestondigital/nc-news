@@ -1,5 +1,5 @@
-import { useState, useContext } from 'react';
 import { UserContext } from '../contexts/User';
+import { useState, useContext } from 'react';
 import { postComment } from '../utils/api';
 
 const PostComment = ({ article_id, setComments }) => {
