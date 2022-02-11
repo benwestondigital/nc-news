@@ -10,7 +10,7 @@ const ArticlesContainer = () => {
   const [articles, setArticles] = useState([]);
   const [searchQueries, setSearchQueries] = useState({
     topic: '',
-    sort_by: 'article_id',
+    sort_by: 'created_at',
   });
 
   useEffect(() => {

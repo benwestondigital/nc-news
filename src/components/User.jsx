@@ -10,8 +10,8 @@ const User = () => {
   const [userStats, setUserStats] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  const changeLoggedInUser = e => {
-    setUser(e.target.value);
+  const changeLoggedInUser = ({ target: { value } }) => {
+    setUser(value);
   };
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const User = () => {
     </>
   ) : (
     <div>
-      <h1>hello {user}</h1>
+      <h1>Hello {user}</h1>
       <form>
         <label htmlFor="selectUser">Switch User:</label>
         <select value={user} onChange={changeLoggedInUser} id="selectUser">

@@ -3,9 +3,9 @@ import '../css/Nav.css';
 import { getTopics, getArticleSort } from '../utils/api';
 import { stringFormat } from '../utils/utils';
 
-const Nav = ({ searchQueries,setSearchQueries }) => {
+const Nav = ({ searchQueries, setSearchQueries }) => {
   const [topics, setTopics] = useState([]);
-  const [sortBy, setSortBy] = useState([]);
+  const [sortBy, setSortBy] = useState(['created_at']);
 
   useEffect(() => {
     const fetchMenus = async () => {
@@ -21,19 +21,19 @@ const Nav = ({ searchQueries,setSearchQueries }) => {
     fetchMenus();
   }, []);
 
-  const handleTopicChange = e => {
+  const handleTopicChange = ({ target: { value } }) => {
     setSearchQueries({
       ...searchQueries,
-      topic: e.target.value,
+      topic: value,
     });
   };
 
-  const handleSortChange = e => {
+  const handleSortChange = ({ target: { value } }) => {
     setSearchQueries({
       ...searchQueries,
-      sort_by: e.target.value,
-    })
-  }
+      sort_by: value,
+    });
+  };
 
   return (
     <div className="Nav">
@@ -56,11 +56,7 @@ const Nav = ({ searchQueries,setSearchQueries }) => {
       </form>
       <form>
         <label htmlFor="sortby">Sort:</label>
-        <select
-          onChange={handleSortChange}
-          className="Nav__select"
-          id="sortby"
-        >
+        <select onChange={handleSortChange} className="Nav__select" id="sortby">
           {sortBy.map(sort => {
             return (
               <option key={sort} value={sort} name={sort}>

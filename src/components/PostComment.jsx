@@ -6,8 +6,8 @@ const PostComment = ({ article_id, setComments }) => {
   const [input, setInput] = useState('');
   const { user } = useContext(UserContext);
 
-  const handleInput = e => {
-    setInput(e.target.value);
+  const handleInput = ({target:{value}}) => {
+    setInput(value);
   };
 
   const handleSubmit = async e => {
