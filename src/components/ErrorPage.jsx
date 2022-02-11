@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 
 const ErrorPage = props => {
-  console.log(props.error.message);
   return (
     <div>
       {props.children}
@@ -14,4 +13,3 @@ const ErrorPage = props => {
 };
 
 export default ErrorPage;
-

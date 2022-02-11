@@ -1,5 +1,6 @@
 import axios from 'axios';
 const source = axios.CancelToken.source();
+const cancelToken = source.token;
 
 const newsApi = axios.create({
   baseURL: 'https://ben-reddit-project.herokuapp.com/api',
@@ -34,7 +35,7 @@ export async function getSingleArticle(article_id) {
     const {
       data: { article },
     } = await newsApi.get(`/articles/${article_id}`, {
-      cancelToken: source.token,
+      cancelToken,
     });
     return article;
   } catch (err) {
@@ -52,7 +53,7 @@ export async function getArticles(queries) {
         params: queries,
       },
       {
-        cancelToken: source.token,
+        cancelToken,
       }
     );
     return articles;
@@ -67,7 +68,7 @@ export async function getCommentsByArticleId(article_id) {
     const {
       data: { comments },
     } = await newsApi.get(`/articles/${article_id}/comments`, {
-      cancelToken: source.token,
+      cancelToken,
     });
     return comments;
   } catch (err) {
@@ -77,7 +78,7 @@ export async function getCommentsByArticleId(article_id) {
 
 export async function deleteComment(comment_id) {
   try {
-    return await newsApi.delete(`/comments/${comment_id}`);
+    return await newsApi.delete(`/comments/${comment_id}`, { cancelToken });
   } catch (err) {
     throw err;
   }
@@ -87,10 +88,14 @@ export async function postComment(article_id, user, body) {
   try {
     const {
       data: { comment },
-    } = await newsApi.post(`/articles/${article_id}/comments`, {
-      username: user,
-      body: body,
-    });
+    } = await newsApi.post(
+      `/articles/${article_id}/comments`,
+      {
+        username: user,
+        body: body,
+      },
+      { cancelToken }
+    );
     return comment;
   } catch (err) {
     throw err;
@@ -102,9 +107,13 @@ export async function patchArticleVote(article_id, vote) {
   try {
     const {
       data: { article },
-    } = await newsApi.patch(`/articles/${article_id}`, {
-      inc_votes: vote,
-    });
+    } = await newsApi.patch(
+      `/articles/${article_id}`,
+      {
+        inc_votes: vote,
+      },
+      { cancelToken }
+    );
     return article;
   } catch (err) {
     throw err;
