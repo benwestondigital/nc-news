@@ -11,7 +11,9 @@ export async function getTopics() {
   try {
     const {
       data: { topics },
-    } = await newsApi.get('/topics');
+    } = await newsApi.get('/topics', {
+      cancelToken,
+    });
     return topics;
   } catch (err) {
     throw err;
@@ -23,7 +25,9 @@ export async function getArticleSort() {
   try {
     const {
       data: { articles },
-    } = await newsApi.get('/articles');
+    } = await newsApi.get('/articles', {
+      cancelToken,
+    });
     return Object.keys(articles[0]);
   } catch (err) {
     throw err;
