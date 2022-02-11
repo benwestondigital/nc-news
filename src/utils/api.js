@@ -1,4 +1,5 @@
 import axios from 'axios';
+const source = axios.CancelToken.source();
 
 const newsApi = axios.create({
   baseURL: 'https://ben-reddit-project.herokuapp.com/api',
@@ -43,9 +44,15 @@ export async function getArticles(queries) {
   try {
     const {
       data: { articles },
-    } = await newsApi.get('/articles', {
-      params: queries,
-    });
+    } = await newsApi.get(
+      '/articles',
+      {
+        params: queries,
+      },
+      {
+        cancelToken: source.token,
+      }
+    );
     return articles;
   } catch (err) {
     return err;
@@ -57,7 +64,9 @@ export async function getCommentsByArticleId(article_id) {
   try {
     const {
       data: { comments },
-    } = await newsApi.get(`/articles/${article_id}/comments`);
+    } = await newsApi.get(`/articles/${article_id}/comments`, {
+      cancelToken: source.token,
+    });
     return comments;
   } catch (err) {
     return err;
@@ -74,14 +83,12 @@ export async function deleteComment(comment_id) {
 
 export async function postComment(article_id, user, body) {
   try {
-    console.log(user, body);
     const {
       data: { comment },
     } = await newsApi.post(`/articles/${article_id}/comments`, {
       username: user,
       body: body,
     });
-    console.log(comment);
     return comment;
   } catch (err) {
     return err;

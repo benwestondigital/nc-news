@@ -13,10 +13,10 @@ const Comment = ({
   const renderDelete = () => author === user;
 
   const handleDelete = async () => {
-    await deleteComment(comment_id);
     setComments(currComments => {
       return [...currComments.filter(obj => obj.comment_id !== comment_id)];
     });
+    await deleteComment(comment_id);
   };
 
   return (
@@ -27,7 +27,11 @@ const Comment = ({
         {date} {time}
       </p>
       {renderDelete() && (
-        <button type="button" onClick={handleDelete} className="Comment__delete">
+        <button
+          type="button"
+          onClick={handleDelete}
+          className="Comment__delete"
+        >
           Delete
         </button>
       )}

@@ -5,8 +5,8 @@ import './css/App.css';
 import Header from './components/Header';
 import User from './components/User';
 import ArticlesContainer from './components/ArticlesContainer';
-import Topics from './components/Topics';
 import SingleArticle from './components/SingleArticle';
+import ErrorPage from './components/ErrorPage';
 
 function App() {
   const [user, setUser] = useState('weegembump');
@@ -17,9 +17,9 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<ArticlesContainer />} />
-            <Route path="/topics/:topic_id" element={<Topics />} />
             <Route path="/articles/:article_id" element={<SingleArticle />} />
             <Route path="/user" element={<User/>}/>
+            <Route path="*" element={<ErrorPage><p>404 - Page Not Found</p></ErrorPage>}/>
           </Routes>
         </div>
       </BrowserRouter>

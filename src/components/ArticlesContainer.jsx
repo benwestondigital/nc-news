@@ -3,6 +3,7 @@ import '../css/ArticlesContainer.css';
 import Nav from '../components/Nav';
 import ArticlePreview from '../components/ArticlePreview';
 import { getArticles } from '../utils/api';
+import ErrorPage from './ErrorPage';
 
 const ArticlesContainer = () => {
   //piece of state for Error
@@ -19,8 +20,7 @@ const ArticlesContainer = () => {
         setArticles(apiArticles);
       } catch (err) {
         console.log(err);
-        //Error component
-        // <Error error={err}/>
+        <ErrorPage error={err}/>
       }
     };
     fetchArticles();
