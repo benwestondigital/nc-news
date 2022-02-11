@@ -4,20 +4,18 @@ import { patchArticleVote } from '../utils/api';
 
 const Votes = ({ article_id, votes }) => {
   const [voteChange, setVoteChange] = useState(0);
-  const [voteCounter, setVoteCounter] = useState(0);
   const [isError, setIsError] = useState(null);
 
-  const handleVoteClick = ({ target: { id: vote } }, ...e) => {
+  const handleVoteClick = e => {
     e.preventDefault();
+    const vote = e.target.id;
     let sentVote = 0;
     vote === 'up' ? (sentVote = 1) : (sentVote = -1);
 
     try {
-      if (vote === 'up' && voteCounter < 1) {
-        setVoteCounter(currCount => currCount + 1);
+      if (vote === 'up' && voteChange < 1) {
         setVoteChange(currVotes => currVotes + sentVote);
-      } else if (vote === 'down' && voteCounter > -1) {
-        setVoteCounter(currCount => currCount - 1);
+      } else if (vote === 'down' && voteChange > -1) {
         setVoteChange(currVotes => currVotes + sentVote);
       }
       patchArticleVote(article_id, sentVote);
