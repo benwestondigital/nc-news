@@ -7,9 +7,8 @@ const Votes = ({ article_id, votes }) => {
   const [voteCounter, setVoteCounter] = useState(0);
   const [isError, setIsError] = useState(null);
 
-  const handleVoteClick = e => {
+  const handleVoteClick = ({ target: { id: vote } }, ...e) => {
     e.preventDefault();
-    const vote = e.target.id;
     let sentVote = 0;
     vote === 'up' ? (sentVote = 1) : (sentVote = -1);
 
