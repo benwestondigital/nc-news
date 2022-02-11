@@ -10,6 +10,10 @@ const User = () => {
   const [userStats, setUserStats] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
+  const changeLoggedInUser = e => {
+    setUser(e.target.value);
+  };
+
   useEffect(() => {
     const fetchUniqueUsers = async () => {
       const users = (await getArticles()).map(user => user.author);
@@ -17,10 +21,6 @@ const User = () => {
     };
     fetchUniqueUsers();
   }, []);
-
-  const changeLoggedInUser = e => {
-    setUser(e.target.value);
-  };
 
   useEffect(() => {
     const fetchLoggedInUserData = async () => {
@@ -31,6 +31,10 @@ const User = () => {
       });
       setUserData(apiUser);
     };
+    fetchLoggedInUserData();
+  }, [user]);
+
+  useEffect(() => {
     const workOutUserStats = () => {
       const articlesPosted = userData.length;
       const commentCount = userData.reduce((acc, obj) => {
@@ -47,9 +51,8 @@ const User = () => {
       });
       setIsLoading(false);
     };
-    fetchLoggedInUserData();
     workOutUserStats();
-  }, [user]);
+  }, [userData]);
 
   return isLoading ? (
     <>
