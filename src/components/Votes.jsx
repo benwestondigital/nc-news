@@ -8,9 +8,8 @@ const Votes = ({ article_id, votes }) => {
 
   const handleVoteClick = e => {
     e.preventDefault();
-    const [up, down] = [1, -1];
     let sentVote = 0;
-    e.target.className.includes('up') ? (sentVote = up) : (sentVote = down);
+    e.target.className.includes('up') ? (sentVote = 1) : (sentVote = -1);
 
     try {
       setVoteChange(currVotes => currVotes + sentVote);

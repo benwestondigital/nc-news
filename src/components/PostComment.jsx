@@ -28,7 +28,7 @@ const PostComment = ({ article_id, setComments }) => {
         placeholder="Leave a comment"
         id="addComment"
       ></input>
-      <button>Add Comment</button>
+      <button type="button">Add Comment</button>
     </form>
   );
 };

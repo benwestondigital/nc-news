@@ -1,12 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../contexts/User';
 import { getArticles } from '../utils/api';
+const Spinner = require('react-spinkit');
 
 const User = () => {
   const { user, setUser } = useContext(UserContext);
   const [uniqueUsers, setUniqueUsers] = useState([]);
   const [userData, setUserData] = useState([]);
   const [userStats, setUserStats] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchUniqueUsers = async () => {
@@ -22,7 +24,8 @@ const User = () => {
 
   useEffect(() => {
     const fetchLoggedInUserData = async () => {
-      const data = await getArticles()
+      setIsLoading(true);
+      const data = await getArticles();
       const apiUser = data.filter(author => {
         return author.author === user;
       });
@@ -42,21 +45,27 @@ const User = () => {
         commentCount,
         voteCount,
       });
+      setIsLoading(false);
     };
     fetchLoggedInUserData();
     workOutUserStats();
   }, [user]);
 
-  return (
+  return isLoading ? (
+    <>
+      <p>Loading...</p>
+      <Spinner name="circle" />
+    </>
+  ) : (
     <div>
       <h1>hello {user}</h1>
       <form>
         <label htmlFor="selectUser">Switch User:</label>
-        <select onChange={changeLoggedInUser} id="selectUser">
-          {uniqueUsers.map(user => {
+        <select value={user} onChange={changeLoggedInUser} id="selectUser">
+          {uniqueUsers.map(uniqueUser => {
             return (
-              <option key={user} value={user}>
-                {user}
+              <option key={uniqueUser} value={uniqueUser}>
+                {uniqueUser}
               </option>
             );
           })}

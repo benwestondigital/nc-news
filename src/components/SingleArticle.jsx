@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Article from './Article';
 import CommentsContainer from './CommentsContainer';
 import { getSingleArticle } from '../utils/api';
+const Spinner = require('react-spinkit');
 
 const SingleArticle = () => {
   const [article, setArticle] = useState([]);
@@ -31,7 +32,10 @@ const SingleArticle = () => {
   }
 
   return isLoading ? (
-    <p>Loading...</p>
+    <>
+      <p>Loading...</p>
+      <Spinner name="circle" />
+    </>
   ) : (
     <>
       <div>
