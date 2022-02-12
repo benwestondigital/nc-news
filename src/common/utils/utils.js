@@ -28,3 +28,14 @@ export const dateTimeFormat = created_at => {
 
   return { date, time };
 };
+
+export const userDataMath = (userData) => {
+  const articlesPosted = userData.length;
+  const commentCount = userData.reduce((acc, obj) => {
+    return acc + Number(obj.comment_count);
+  }, 0);
+  const voteCount = userData.reduce((acc, obj) => {
+    return acc + obj.votes;
+  }, 0);
+  return { articlesPosted, commentCount, voteCount };
+}

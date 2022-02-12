@@ -1,8 +1,8 @@
-import Loading from '../../common/components/Loading';
-import ErrorPage from '../../common/components/ErrorPage';
+import { Loading, ErrorPage } from '../../common/components/index';
 import { UserContext } from '../../common/contexts/User';
 import { useContext, useEffect, useState } from 'react';
 import { getArticles } from '../../common/utils/api';
+import { userDataMath } from '../../common/utils/utils';
 
 const User = () => {
   const { user, setUser } = useContext(UserContext);
@@ -53,13 +53,8 @@ const User = () => {
 
   useEffect(() => {
     const workOutUserStats = () => {
-      const articlesPosted = userData.length;
-      const commentCount = userData.reduce((acc, obj) => {
-        return acc + Number(obj.comment_count);
-      }, 0);
-      const voteCount = userData.reduce((acc, obj) => {
-        return acc + obj.votes;
-      }, 0);
+      const { articlesPosted, commentCount, voteCount } =
+        userDataMath(userData);
       setUserStats({
         ...userStats,
         articlesPosted,
