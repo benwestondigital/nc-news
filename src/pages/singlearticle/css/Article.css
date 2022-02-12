@@ -1,6 +1,7 @@
 .Article {
   border-bottom: 2px solid #dae0e6;
-  margin: 0.25em 0em;
+  margin-top: 5rem;
+  margin: 5rem 0em 0.25em;
   padding: 0em 0.5em;
   background-color: #fff;
   display: grid;

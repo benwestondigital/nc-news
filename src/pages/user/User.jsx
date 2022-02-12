@@ -1,3 +1,4 @@
+import './user.css';
 import { Loading, ErrorPage } from '../../common/components/index';
 import { UserContext } from '../../common/contexts/User';
 import { useContext, useEffect, useState } from 'react';
@@ -72,7 +73,7 @@ const User = () => {
   return isLoading ? (
     <Loading />
   ) : (
-    <div>
+    <div className="User">
       <h1>Hello {user}</h1>
       <form>
         <label htmlFor="selectUser">Switch User:</label>
