@@ -18,9 +18,10 @@ const SingleArticle = () => {
         setIsLoading(true);
         const singleArticle = await getSingleArticle(article_id);
         setArticle(singleArticle);
-        setIsLoading(false);
       } catch (err) {
         setIsError(err);
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchSingleArticle();

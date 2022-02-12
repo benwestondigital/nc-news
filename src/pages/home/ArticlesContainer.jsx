@@ -21,9 +21,10 @@ const ArticlesContainer = () => {
         setIsLoading(true);
         const apiArticles = await getArticles(searchQueries);
         setArticles(apiArticles);
-        setIsLoading(false);
       } catch (err) {
         setIsError(err);
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchArticles();

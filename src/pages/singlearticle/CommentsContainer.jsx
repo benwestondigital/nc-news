@@ -17,9 +17,10 @@ const CommentsContainer = ({ article_id }) => {
         setIsLoading(true);
         const apiComments = await getCommentsByArticleId(article_id);
         setComments(apiComments);
-        setIsLoading(false);
       } catch (err) {
         setIsError(err);
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchComments();

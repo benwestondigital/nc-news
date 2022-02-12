@@ -22,10 +22,11 @@ const User = () => {
         setIsError(false);
         setIsLoading(true);
         const users = (await getArticles()).map(user => user.author);
-        setIsLoading(false);
         setUniqueUsers([...new Set(users)]);
       } catch (err) {
         setIsError(err);
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchUniqueUsers();
@@ -37,13 +38,14 @@ const User = () => {
         setIsError(false);
         setIsLoading(true);
         const data = await getArticles();
-        setIsLoading(false);
         const apiUser = data.filter(author => {
           return author.author === user;
         });
         setUserData(apiUser);
       } catch (err) {
         setIsError(err);
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchLoggedInUserData();
