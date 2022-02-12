@@ -1,10 +1,9 @@
 import './css/ArticlesContainer.css';
 import ArticlePreview from './ArticlePreview';
-import Nav from '../../components/Nav';
-import ErrorPage from '../../components/ErrorPage';
-import LoadingSpinner from '../../components/Loading';
+import Nav from '../../common/components/Nav';
+import { ErrorPage, Loading } from '../../common/components/index';
 import { useState, useEffect } from 'react';
-import { getArticles } from '../../utils/api';
+import { getArticles } from '../../common/utils/api';
 
 const ArticlesContainer = () => {
   const [articles, setArticles] = useState([]);
@@ -35,7 +34,7 @@ const ArticlesContainer = () => {
   }
 
   return isLoading ? (
-    <LoadingSpinner />
+    <Loading />
   ) : (
     <div className="ArticlesContainer">
       <Nav searchQueries={searchQueries} setSearchQueries={setSearchQueries} />

@@ -1,6 +1,5 @@
 import '../css/Nav.css';
-import ErrorPage from './ErrorPage';
-import LoadingSpinner from './Loading';
+import { ErrorPage, Loading } from './index';
 import { useState, useEffect } from 'react';
 import { getTopics, getArticleSort } from '../utils/api';
 import { stringFormat } from '../utils/utils';
@@ -20,9 +19,10 @@ const Nav = ({ searchQueries, setSearchQueries }) => {
         const apiArticleKeys = await getArticleSort();
         setTopics(apiTopics);
         setSortBy(apiArticleKeys);
-        setIsLoading(false);
       } catch (err) {
         setIsError(err);
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchMenus();
@@ -47,7 +47,7 @@ const Nav = ({ searchQueries, setSearchQueries }) => {
   }
 
   return isLoading ? (
-    <LoadingSpinner />
+    <Loading />
   ) : (
     <div className="Nav">
       <form>

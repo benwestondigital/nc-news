@@ -1,10 +1,9 @@
 import Article from './Article';
-import ErrorPage from '../../components/ErrorPage';
-import LoadingSpinner from '../../components/Loading';
+import { ErrorPage, Loading } from '../../common/components/index.js';
 import CommentsContainer from './CommentsContainer';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getSingleArticle } from '../../utils/api';
+import { getSingleArticle } from '../../common/utils/api';
 
 const SingleArticle = () => {
   const [article, setArticle] = useState([]);
@@ -32,7 +31,7 @@ const SingleArticle = () => {
   }
 
   return isLoading ? (
-    <LoadingSpinner />
+    <Loading />
   ) : (
     <>
       <div>

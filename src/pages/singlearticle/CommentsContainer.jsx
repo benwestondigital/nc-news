@@ -1,10 +1,9 @@
 import './css/CommentsContainer.css';
 import Comment from './Comment';
 import PostComment from './PostComment';
-import ErrorPage from '../../components/ErrorPage';
-import LoadingSpinner from '../../components/Loading';
+import { ErrorPage, Loading } from '../../common/components/index';
 import { useState, useEffect } from 'react';
-import { getCommentsByArticleId } from '../../utils/api';
+import { getCommentsByArticleId } from '../../common/utils/api';
 
 const CommentsContainer = ({ article_id }) => {
   const [comments, setComments] = useState([]);
@@ -31,7 +30,7 @@ const CommentsContainer = ({ article_id }) => {
   }
 
   return isLoading ? (
-    <LoadingSpinner />
+    <Loading />
   ) : (
     <div id="comments" className="CommentContainer">
       <PostComment article_id={article_id} setComments={setComments} />

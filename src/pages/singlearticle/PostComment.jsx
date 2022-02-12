@@ -1,6 +1,6 @@
-import { UserContext } from '../../contexts/User';
+import { UserContext } from '../../common/contexts/User';
 import { useState, useContext } from 'react';
-import { postComment } from '../../utils/api';
+import { postComment } from '../../common/utils/api';
 
 const PostComment = ({ article_id, setComments }) => {
   const [input, setInput] = useState('');

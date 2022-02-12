@@ -1,6 +1,6 @@
 const Spinner = require('react-spinkit');
 
-const LoadingSpinner = () => {
+const Loading = () => {
   return (
     <div className='Loading'>
       <p className='Loading__text'>Loading...</p>
@@ -9,4 +9,4 @@ const LoadingSpinner = () => {
   );
 };
 
-export default LoadingSpinner;
+export default Loading;

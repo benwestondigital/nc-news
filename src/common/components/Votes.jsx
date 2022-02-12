@@ -1,7 +1,7 @@
 import '../css/Votes.css';
 import { useState } from 'react';
 import { patchArticleVote } from '../utils/api';
-import ErrorPage from './ErrorPage';
+import { ErrorPage } from './index';
 
 const Votes = ({ article_id, votes }) => {
   const [voteChange, setVoteChange] = useState(0);
