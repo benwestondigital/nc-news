@@ -6,6 +6,10 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  position: fixed;
+  height: 5rem;
+  width: 100%;
+  border-bottom: 4px solid #c0c2c4;
 }
 
 .Header__text-link {
