@@ -4,7 +4,7 @@ const ErrorPage = props => {
   return (
     <div>
       {props.children}
-      <p>{props.error.message}</p>
+      {props.error && <p>{props.error.message}</p>}
       <button>
         <Link to="/">Return to Home</Link>
       </button>

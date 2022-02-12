@@ -1,8 +1,8 @@
-import '../css/Comment.css';
-import { UserContext } from '../contexts/User';
+import './css/Comment.css';
+import { UserContext } from '../../contexts/User';
 import { useContext } from 'react';
-import { dateTimeFormat } from '../utils/utils';
-import { deleteComment } from '../utils/api';
+import { dateTimeFormat } from '../../utils/utils';
+import { deleteComment } from '../../utils/api';
 
 const Comment = ({
   data: { comment_id, created_at, author, body },

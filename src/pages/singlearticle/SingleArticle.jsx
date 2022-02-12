@@ -1,10 +1,10 @@
 import Article from './Article';
-import ErrorPage from './ErrorPage';
-import LoadingSpinner from './Loading';
+import ErrorPage from '../../components/ErrorPage';
+import LoadingSpinner from '../../components/Loading';
 import CommentsContainer from './CommentsContainer';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getSingleArticle } from '../utils/api';
+import { getSingleArticle } from '../../utils/api';
 
 const SingleArticle = () => {
   const [article, setArticle] = useState([]);

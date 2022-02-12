@@ -3,9 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import './css/App.css';
 import Header from './components/Header';
-import User from './components/User';
-import ArticlesContainer from './components/ArticlesContainer';
-import SingleArticle from './components/SingleArticle';
+import User from './pages/user/User';
+import ArticlesContainer from './pages/home/ArticlesContainer';
+import SingleArticle from './pages/singlearticle/SingleArticle';
 import ErrorPage from './components/ErrorPage';
 
 function App() {

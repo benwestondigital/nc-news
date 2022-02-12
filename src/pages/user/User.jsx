@@ -1,8 +1,8 @@
-import LoadingSpinner from './Loading';
-import ErrorPage from './ErrorPage';
-import { UserContext } from '../contexts/User';
+import LoadingSpinner from '../../components/Loading';
+import ErrorPage from '../../components/ErrorPage';
+import { UserContext } from '../../contexts/User';
 import { useContext, useEffect, useState } from 'react';
-import { getArticles } from '../utils/api';
+import { getArticles } from '../../utils/api';
 
 const User = () => {
   const { user, setUser } = useContext(UserContext);

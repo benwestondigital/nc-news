@@ -1,6 +1,6 @@
-import '../css/Article.css';
-import Votes from '../components/Votes';
-import { stringFormat, dateTimeFormat } from '../utils/utils';
+import './css/Article.css';
+import Votes from '../../components/Votes';
+import { stringFormat, dateTimeFormat } from '../../utils/utils';
 
 const Article = ({
   data: {

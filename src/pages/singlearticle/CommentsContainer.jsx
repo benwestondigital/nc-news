@@ -1,10 +1,10 @@
-import '../css/CommentsContainer.css';
+import './css/CommentsContainer.css';
 import Comment from './Comment';
 import PostComment from './PostComment';
-import ErrorPage from './ErrorPage';
-import LoadingSpinner from './Loading';
+import ErrorPage from '../../components/ErrorPage';
+import LoadingSpinner from '../../components/Loading';
 import { useState, useEffect } from 'react';
-import { getCommentsByArticleId } from '../utils/api';
+import { getCommentsByArticleId } from '../../utils/api';
 
 const CommentsContainer = ({ article_id }) => {
   const [comments, setComments] = useState([]);

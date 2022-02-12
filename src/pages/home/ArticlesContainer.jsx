@@ -1,10 +1,10 @@
-import '../css/ArticlesContainer.css';
-import ArticlePreview from '../components/ArticlePreview';
-import Nav from '../components/Nav';
-import ErrorPage from './ErrorPage';
-import LoadingSpinner from './Loading';
+import './css/ArticlesContainer.css';
+import ArticlePreview from './ArticlePreview';
+import Nav from '../../components/Nav';
+import ErrorPage from '../../components/ErrorPage';
+import LoadingSpinner from '../../components/Loading';
 import { useState, useEffect } from 'react';
-import { getArticles } from '../utils/api';
+import { getArticles } from '../../utils/api';
 
 const ArticlesContainer = () => {
   const [articles, setArticles] = useState([]);
