@@ -1,0 +1,42 @@
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0.1em 0.25em;
+  padding: 0em 0.2em;
+}
+
+.form__button {
+  margin: 0.3em 0.25em;
+  padding: 0.7em 0.6em;
+  text-transform: uppercase;
+  color: white;
+}
+
+.form__button--active {
+  background-color: #24a0ed;
+}
+
+.form__button--inactive {
+  background-color: #efefed;
+  color: #999898;
+}
+
+label {
+  margin-bottom: 0.2em;
+}
+
+.form__commentbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 0.9em;
+}
+
+.form__warning {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+}

@@ -54,3 +54,7 @@
 .Comment__delete:active {
   transform: translateY(2px);
 }
+
+.warning {
+  text-align: center;
+}
