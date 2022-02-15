@@ -4,6 +4,7 @@ import { UserContext } from '../../common/contexts/User';
 import { useContext, useEffect, useState } from 'react';
 import { getArticles } from '../../common/utils/api';
 import { userDataMath } from '../../common/utils/utils';
+import image from '../../common/undraw_Pie_graph_re_fvol.png'
 
 const User = () => {
   const { user, setUser } = useContext(UserContext);
@@ -76,17 +77,25 @@ const User = () => {
     <div className="User">
       <main className="information">
         <h1>Hello {user}</h1>
+        <img src={image} alt="profile"/>
         <form>
-          <label htmlFor="selectUser">Switch User:</label>
-          <select className='select' value={user} onChange={changeLoggedInUser} id="selectUser">
-            {uniqueUsers.map(uniqueUser => {
-              return (
-                <option key={uniqueUser} value={uniqueUser}>
-                  {uniqueUser}
-                </option>
-              );
-            })}
-          </select>
+          <div className="form__dropdown">
+            <label htmlFor="selectUser">Switch User:</label>
+            <select
+              className="select"
+              value={user}
+              onChange={changeLoggedInUser}
+              id="selectUser"
+            >
+              {uniqueUsers.map(uniqueUser => {
+                return (
+                  <option key={uniqueUser} value={uniqueUser}>
+                    {uniqueUser}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
         </form>
         <div className="articlestats">
           <h3>Article Stats</h3>

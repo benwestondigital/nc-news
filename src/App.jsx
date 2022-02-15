@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
         <div className="App">
           <Header />
-          <Routes>
+          <Routes className="routes">
             <Route path="/" element={<ArticlesContainer />} />
             <Route path="/articles/:article_id" element={<SingleArticle />} />
             <Route path="/user" element={<User/>}/>

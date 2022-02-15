@@ -51,33 +51,33 @@ const Nav = ({ searchQueries, setSearchQueries }) => {
   ) : (
     <div className="Nav">
       <form>
-        <label htmlFor="topics">Topics:</label>
-        <select
-          onChange={handleTopicChange}
-          className="select"
-          id="topics"
-        >
-          <option value={''}>All</option>
-          {topics.map(topic => {
-            return (
-              <option key={topic.slug} value={topic.slug} name={topic.slug}>
-                {stringFormat(topic.slug)}
-              </option>
-            );
-          })}
-        </select>
+        <div className="form__dropdown">
+          <label htmlFor="topics">Topics:</label>
+          <select onChange={handleTopicChange} className="select" id="topics">
+            <option value={''}>All</option>
+            {topics.map(topic => {
+              return (
+                <option key={topic.slug} value={topic.slug} name={topic.slug}>
+                  {stringFormat(topic.slug)}
+                </option>
+              );
+            })}
+          </select>
+        </div>
       </form>
       <form>
-        <label htmlFor="sortby">Sort:</label>
-        <select onChange={handleSortChange} className="select" id="sortby">
-          {sortBy.map(sort => {
-            return (
-              <option key={sort} value={sort} name={sort}>
-                {stringFormat(sort)}
-              </option>
-            );
-          })}
-        </select>
+        <div className="form__dropdown">
+          <label htmlFor="sortby">Sort:</label>
+          <select onChange={handleSortChange} className="select" id="sortby">
+            {sortBy.map(sort => {
+              return (
+                <option key={sort} value={sort} name={sort}>
+                  {stringFormat(sort)}
+                </option>
+              );
+            })}
+          </select>
+        </div>
       </form>
     </div>
   );

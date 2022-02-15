@@ -4,14 +4,24 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 100vh;
 }
+
+.form__dropdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5em;
+    font-size: 0.9em;
+  }
 
 .information {
   border: 1px solid rgb(145, 145, 145);
-  border-radius: 10%;
-  padding: 3em 0.5em;
-  margin: 1em 0.5em;
+  border-radius: 50px;
+  width: 90%;
+  height: 600px;
+  padding: 2em 0.5em;
+  margin: 2em 0.5em 3em 0.5em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,6 +31,7 @@
 
 .information h1 {
   margin-bottom: 1em;
+  text-align: center;
 }
 
 .information p {
@@ -57,4 +68,9 @@
 }
 .select option {
 	font-weight:normal;
+}
+
+img {
+    width: 100%;
+    height: auto;
 }

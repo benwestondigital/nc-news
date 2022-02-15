@@ -47,7 +47,7 @@ const PostComment = ({ article_id, setComments }) => {
           Add Comment
         </button>
       </form>
-      <div className="form__warning">{warning && <p>Please enter a comment.</p>}</div>
+      <div className="form__warning">{warning && <p>Please enter a comment before posting.</p>}</div>
     </>
   );
 };
