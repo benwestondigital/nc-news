@@ -54,7 +54,7 @@ const Nav = ({ searchQueries, setSearchQueries }) => {
         <label htmlFor="topics">Topics:</label>
         <select
           onChange={handleTopicChange}
-          className="Nav__select"
+          className="select"
           id="topics"
         >
           <option value={''}>All</option>
@@ -69,7 +69,7 @@ const Nav = ({ searchQueries, setSearchQueries }) => {
       </form>
       <form>
         <label htmlFor="sortby">Sort:</label>
-        <select onChange={handleSortChange} className="Nav__select" id="sortby">
+        <select onChange={handleSortChange} className="select" id="sortby">
           {sortBy.map(sort => {
             return (
               <option key={sort} value={sort} name={sort}>

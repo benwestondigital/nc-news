@@ -74,23 +74,33 @@ const User = () => {
     <Loading />
   ) : (
     <div className="User">
-      <h1>Hello {user}</h1>
-      <form>
-        <label htmlFor="selectUser">Switch User:</label>
-        <select value={user} onChange={changeLoggedInUser} id="selectUser">
-          {uniqueUsers.map(uniqueUser => {
-            return (
-              <option key={uniqueUser} value={uniqueUser}>
-                {uniqueUser}
-              </option>
-            );
-          })}
-        </select>
-      </form>
-      <h3>Articles</h3>
-      <p>Posted: {userStats.articlesPosted}</p>
-      <p>Comments Received: {userStats.commentCount}</p>
-      <p>Karma: {userStats.voteCount}</p>
+      <main className="information">
+        <h1>Hello {user}</h1>
+        <form>
+          <label htmlFor="selectUser">Switch User:</label>
+          <select className='select' value={user} onChange={changeLoggedInUser} id="selectUser">
+            {uniqueUsers.map(uniqueUser => {
+              return (
+                <option key={uniqueUser} value={uniqueUser}>
+                  {uniqueUser}
+                </option>
+              );
+            })}
+          </select>
+        </form>
+        <div className="articlestats">
+          <h3>Article Stats</h3>
+          <p>
+            Posted: <strong>{userStats.articlesPosted}</strong>
+          </p>
+          <p>
+            Comments Received: <strong>{userStats.commentCount}</strong>
+          </p>
+          <p>
+            Karma: <strong>{userStats.voteCount}</strong>
+          </p>
+        </div>
+      </main>
     </div>
   );
 };
