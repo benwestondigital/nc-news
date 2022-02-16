@@ -27,6 +27,7 @@ const Comment = ({
         {date} {time}
       </p>
       {renderDelete() && (
+        <div className="Comment__deletebox">
         <button
           type="button"
           onClick={handleDelete}
@@ -34,6 +35,7 @@ const Comment = ({
         >
           Delete
         </button>
+        </div>
       )}
     </div>
   );
