@@ -33,7 +33,7 @@ const CommentsContainer = ({ article_id }) => {
   return isLoading ? (
     <Loading />
   ) : (
-    <div id="comments" className="CommentContainer">
+    <div id="comments" className="CommentsContainer">
       <PostComment article_id={article_id} setComments={setComments} />
       {comments.map(comment => {
         return (
