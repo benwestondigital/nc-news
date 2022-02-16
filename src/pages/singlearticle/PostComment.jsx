@@ -32,6 +32,7 @@ const PostComment = ({ article_id, setComments }) => {
         <div className="form__commentbox">
           <label htmlFor="addComment">Comment:</label>
           <textarea
+          className='form__textarea'
             onChange={handleInput}
             value={input}
             placeholder="Leave a comment"
