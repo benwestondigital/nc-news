@@ -29,3 +29,12 @@
 .far {
   font-size: 3rem;
 }
+
+@media screen and (min-width: 800px) {
+  .Header {
+    max-width: 800px;
+    margin: 0 auto;
+    border-left: 1px solid #dae0e6;
+    border-right: 1px solid #dae0e6;
+  }
+}
