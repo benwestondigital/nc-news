@@ -1,5 +1,7 @@
 .Loading {
     display: flex;
+    flex-direction: column;
+    margin-top: 5em;
     align-items: center;
     justify-content: center;
     width: 100%;
