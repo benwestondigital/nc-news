@@ -32,6 +32,12 @@ label {
   flex-direction: column;
   justify-content: flex-start;
   font-size: 0.9em;
+  width: 80%;
+}
+
+.form__textarea {
+  height: 90%;
+  width: 90%;
 }
 
 .form__warning {
