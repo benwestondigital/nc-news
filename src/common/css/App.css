@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 .App {
@@ -14,7 +15,7 @@
 
 @media screen and (min-width: 800px) {
   .App {
-    max-width: 800px;
+    max-width: 1024px;
     margin: 0 auto;
     border-left: 1px solid #9b9da0;
     border-right: 1px solid #9b9da0;
