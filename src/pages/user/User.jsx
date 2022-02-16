@@ -77,7 +77,7 @@ const User = () => {
     <div className="User">
       <main className="information">
         <h1>Hello {user}</h1>
-        <img src={image} alt="profile"/>
+        <img className="User__img" src={image} alt="profile"/>
         <form>
           <div className="form__dropdown">
             <label htmlFor="selectUser">Switch User:</label>
