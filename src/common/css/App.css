@@ -3,7 +3,6 @@
 }
 
 .App {
-  height: 100vh;
   display: grid;
   background-color: #dae0e6;
   grid-template-columns: 100%;
@@ -11,4 +10,17 @@
   grid-template-areas:
     'header'
     'articles';
+}
+
+@media screen and (min-width: 800px) {
+  .App {
+    max-width: 800px;
+    margin: 0 auto;
+    border-left: 1px solid #9b9da0;
+    border-right: 1px solid #9b9da0;
+  }
+
+  .App__container {
+    background-color: #dae0e6;
+  }
 }
