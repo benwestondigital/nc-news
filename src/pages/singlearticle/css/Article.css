@@ -63,6 +63,12 @@
   grid-area: votes;
 }
 
+@media screen and (min-width: 600px) and (max-width: 799px) {
+  .Article {
+    padding: 0em 0.8em;
+  }
+}
+
 @media screen and (min-width: 800px) {
   .Article {
     padding: 0em 1em;
