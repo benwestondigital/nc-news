@@ -28,6 +28,7 @@ const ArticlesContainer = () => {
       }
     };
     fetchArticles();
+    return () => setArticles([]);
   }, [searchQueries]);
 
   if (isError) {

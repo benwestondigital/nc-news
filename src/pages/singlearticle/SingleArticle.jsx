@@ -25,6 +25,7 @@ const SingleArticle = () => {
       }
     };
     fetchSingleArticle();
+    return () => setArticle([]);
   }, [article_id]);
 
   if (isError) {

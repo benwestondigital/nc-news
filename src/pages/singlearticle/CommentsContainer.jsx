@@ -24,6 +24,7 @@ const CommentsContainer = ({ article_id }) => {
       }
     };
     fetchComments();
+    return () => setComments([]);
   }, [article_id]);
 
   if (isError) {
