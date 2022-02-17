@@ -4,7 +4,7 @@ import { UserContext } from '../../common/contexts/User';
 import { useContext, useEffect, useState } from 'react';
 import { getArticles } from '../../common/utils/api';
 import { userDataMath } from '../../common/utils/utils';
-import image from '../../common/undraw_Pie_graph_re_fvol.png';
+import image from '../../common/user-img.png';
 
 const User = () => {
   const { user, setUser } = useContext(UserContext);
