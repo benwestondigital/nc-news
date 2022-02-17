@@ -81,9 +81,6 @@
   }
 }
 @media screen and (min-width: 800px) {
-  .User {
-    margin-bottom: 5em;
-  }
   .User__img {
     max-width: 70%;
   }
