@@ -1,3 +1,4 @@
+import '../css/Loading.css';
 const Spinner = require('react-spinkit');
 
 const Loading = () => {
