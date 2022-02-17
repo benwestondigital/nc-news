@@ -40,7 +40,7 @@ which will load up the website in your browser.
 
 ## Links
 
-The public link to the website can be found at
+The public link to the website can be found at: [Netlify](https://reddit-clone-project.netlify.app/)
 
 Backend API: [Heroku](https://ben-reddit-project.herokuapp.com/api)
 
