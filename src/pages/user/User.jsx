@@ -4,7 +4,7 @@ import { UserContext } from '../../common/contexts/User';
 import { useContext, useEffect, useState } from 'react';
 import { getArticles } from '../../common/utils/api';
 import { userDataMath } from '../../common/utils/utils';
-import image from '../../common/undraw_Pie_graph_re_fvol.png'
+import image from '../../common/undraw_Pie_graph_re_fvol.png';
 
 const User = () => {
   const { user, setUser } = useContext(UserContext);
@@ -32,6 +32,7 @@ const User = () => {
       }
     };
     fetchUniqueUsers();
+    return () => setUniqueUsers([]);
   }, []);
 
   useEffect(() => {
@@ -51,6 +52,7 @@ const User = () => {
       }
     };
     fetchLoggedInUserData();
+    return () => getArticles([]);
   }, [user]);
 
   useEffect(() => {
@@ -77,7 +79,7 @@ const User = () => {
     <div className="User">
       <main className="information">
         <h1>Hello {user}</h1>
-        <img className="User__img" src={image} alt="profile"/>
+        <img className="User__img" src={image} alt="profile" />
         <form>
           <div className="form__dropdown">
             <label htmlFor="selectUser">Switch User:</label>
