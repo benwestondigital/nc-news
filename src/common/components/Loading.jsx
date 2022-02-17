@@ -5,7 +5,7 @@ const Loading = () => {
   return (
     <div className='Loading'>
       <p className='Loading__text'>Loading...</p>
-      <Spinner name="circle" />
+      <Spinner name="circle" fadeIn='none'/>
     </div>
   );
 };
