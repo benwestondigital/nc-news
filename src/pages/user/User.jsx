@@ -2,9 +2,10 @@ import './user.css';
 import { Loading, ErrorPage } from '../../common/components/index';
 import { UserContext } from '../../common/contexts/User';
 import { useContext, useEffect, useState } from 'react';
-import { getArticles } from '../../common/utils/api';
+import { getUsers } from '../../common/utils/api';
 import { userDataMath } from '../../common/utils/utils';
 import image from '../../common/user-img.png';
+import axios from 'axios';
 
 const User = () => {
   const { user, setUser } = useContext(UserContext);
@@ -19,11 +20,12 @@ const User = () => {
   };
 
   useEffect(() => {
+    const source = axios.CancelToken.source();
     const fetchUniqueUsers = async () => {
       try {
         setIsError(false);
         setIsLoading(true);
-        const users = (await getArticles()).map(user => user.author);
+        const users = (await getUsers(source)).map(user => user.author);
         setUniqueUsers([...new Set(users)]);
       } catch (err) {
         setIsError(err);
@@ -32,15 +34,16 @@ const User = () => {
       }
     };
     fetchUniqueUsers();
-    return () => setUniqueUsers([]);
+    return () => source.cancel('User cancelled operation.');
   }, []);
 
   useEffect(() => {
+    const source = axios.CancelToken.source();
     const fetchLoggedInUserData = async () => {
       try {
         setIsError(false);
         setIsLoading(true);
-        const data = await getArticles();
+        const data = await getUsers(source);
         const apiUser = data.filter(author => {
           return author.author === user;
         });
@@ -52,7 +55,7 @@ const User = () => {
       }
     };
     fetchLoggedInUserData();
-    return () => getArticles([]);
+    return () => source.cancel('User cancelled operation.');
   }, [user]);
 
   useEffect(() => {
