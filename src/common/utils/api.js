@@ -1,6 +1,4 @@
 import axios from 'axios';
-const source = axios.CancelToken.source();
-const cancelToken = source.token;
 
 const newsApi = axios.create({
   baseURL: 'https://ben-reddit-project.herokuapp.com/api',
@@ -11,9 +9,7 @@ export async function getTopics() {
   try {
     const {
       data: { topics },
-    } = await newsApi.get('/topics', {
-      cancelToken,
-    });
+    } = await newsApi.get('/topics');
     return topics;
   } catch (err) {
     throw err;
@@ -25,29 +21,25 @@ export async function getArticleSort() {
   try {
     const {
       data: { articles },
-    } = await newsApi.get('/articles', {
-      cancelToken,
-    });
+    } = await newsApi.get('/articles');
     return Object.keys(articles[0]);
   } catch (err) {
     throw err;
   }
 }
 
-export async function getSingleArticle(article_id) {
+export async function getSingleArticle(article_id, source) {
   try {
     const {
       data: { article },
-    } = await newsApi.get(`/articles/${article_id}`, {
-      cancelToken,
-    });
+    } = await newsApi.get(`/articles/${article_id}`, {cancelToken: source.token});
     return article;
   } catch (err) {
     throw err;
   }
 }
 
-export async function getArticles(queries) {
+export async function getArticles(queries, source) {
   try {
     const {
       data: { articles },
@@ -57,7 +49,7 @@ export async function getArticles(queries) {
         params: queries,
       },
       {
-        cancelToken,
+        cancelToken: source.token,
       }
     );
     return articles;
@@ -66,14 +58,26 @@ export async function getArticles(queries) {
   }
 }
 
+export async function getUsers(source) {
+  try {
+    const {
+      data: { articles },
+    } = await newsApi.get(
+      '/articles', {cancelToken: source.token}
+    );
+    return articles;
+  } catch (err) {
+    throw err;
+  }
+}
+
+
 // Comments API calls
 export async function getCommentsByArticleId(article_id) {
   try {
     const {
       data: { comments },
-    } = await newsApi.get(`/articles/${article_id}/comments`, {
-      cancelToken,
-    });
+    } = await newsApi.get(`/articles/${article_id}/comments`);
     return comments;
   } catch (err) {
     throw new Error(err);
@@ -82,7 +86,7 @@ export async function getCommentsByArticleId(article_id) {
 
 export async function deleteComment(comment_id) {
   try {
-    return await newsApi.delete(`/comments/${comment_id}`, { cancelToken });
+    return await newsApi.delete(`/comments/${comment_id}`);
   } catch (err) {
     throw err;
   }
@@ -97,8 +101,7 @@ export async function postComment(article_id, user, body) {
       {
         username: user,
         body: body,
-      },
-      { cancelToken }
+      }
     );
     return comment;
   } catch (err) {
@@ -115,8 +118,7 @@ export async function patchArticleVote(article_id, vote) {
       `/articles/${article_id}`,
       {
         inc_votes: vote,
-      },
-      { cancelToken }
+      }
     );
     return article;
   } catch (err) {
