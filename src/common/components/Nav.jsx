@@ -3,6 +3,7 @@ import { ErrorPage, Loading } from './index';
 import { useState, useEffect } from 'react';
 import { getTopics, getArticleSort } from '../utils/api';
 import { stringFormat } from '../utils/utils';
+import axios from 'axios';
 
 const Nav = ({ searchQueries, setSearchQueries }) => {
   const [topics, setTopics] = useState([]);
@@ -11,12 +12,13 @@ const Nav = ({ searchQueries, setSearchQueries }) => {
   const [isError, setIsError] = useState(null);
 
   useEffect(() => {
+    const source = axios.CancelToken.source();
     const fetchMenus = async () => {
       try {
         setIsError(false);
         setIsLoading(true);
-        const apiTopics = await getTopics();
-        const apiArticleKeys = await getArticleSort();
+        const apiTopics = await getTopics(source);
+        const apiArticleKeys = await getArticleSort(source);
         setTopics(apiTopics);
         setSortBy(apiArticleKeys);
       } catch (err) {
@@ -26,6 +28,7 @@ const Nav = ({ searchQueries, setSearchQueries }) => {
       }
     };
     fetchMenus();
+    return () => source.cancel('User cancelled operation.');
   }, []);
 
   const handleTopicChange = ({ target: { value } }) => {
