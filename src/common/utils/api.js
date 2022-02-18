@@ -5,11 +5,11 @@ const newsApi = axios.create({
 });
 
 // Topic API calls
-export async function getTopics() {
+export async function getTopics(source) {
   try {
     const {
       data: { topics },
-    } = await newsApi.get('/topics');
+    } = await newsApi.get('/topics', { cancelToken: source.token });
     return topics;
   } catch (err) {
     throw err;
@@ -17,11 +17,11 @@ export async function getTopics() {
 }
 
 // Article API calls
-export async function getArticleSort() {
+export async function getArticleSort(source) {
   try {
     const {
       data: { articles },
-    } = await newsApi.get('/articles');
+    } = await newsApi.get('/articles', { cancelToken: source.token });
     return Object.keys(articles[0]);
   } catch (err) {
     throw err;
@@ -32,7 +32,9 @@ export async function getSingleArticle(article_id, source) {
   try {
     const {
       data: { article },
-    } = await newsApi.get(`/articles/${article_id}`, {cancelToken: source.token});
+    } = await newsApi.get(`/articles/${article_id}`, {
+      cancelToken: source.token,
+    });
     return article;
   } catch (err) {
     throw err;
@@ -62,15 +64,12 @@ export async function getUsers(source) {
   try {
     const {
       data: { articles },
-    } = await newsApi.get(
-      '/articles', {cancelToken: source.token}
-    );
+    } = await newsApi.get('/articles', { cancelToken: source.token });
     return articles;
   } catch (err) {
     throw err;
   }
 }
-
 
 // Comments API calls
 export async function getCommentsByArticleId(article_id) {
@@ -96,13 +95,10 @@ export async function postComment(article_id, user, body) {
   try {
     const {
       data: { comment },
-    } = await newsApi.post(
-      `/articles/${article_id}/comments`,
-      {
-        username: user,
-        body: body,
-      }
-    );
+    } = await newsApi.post(`/articles/${article_id}/comments`, {
+      username: user,
+      body: body,
+    });
     return comment;
   } catch (err) {
     throw err;
@@ -114,12 +110,9 @@ export async function patchArticleVote(article_id, vote) {
   try {
     const {
       data: { article },
-    } = await newsApi.patch(
-      `/articles/${article_id}`,
-      {
-        inc_votes: vote,
-      }
-    );
+    } = await newsApi.patch(`/articles/${article_id}`, {
+      inc_votes: vote,
+    });
     return article;
   } catch (err) {
     throw err;
