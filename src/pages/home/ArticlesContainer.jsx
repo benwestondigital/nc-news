@@ -4,6 +4,7 @@ import Nav from '../../common/components/Nav';
 import { ErrorPage, Loading } from '../../common/components/index';
 import { useState, useEffect } from 'react';
 import { getArticles } from '../../common/utils/api';
+import axios from 'axios';
 
 const ArticlesContainer = () => {
   const [articles, setArticles] = useState([]);
@@ -15,11 +16,13 @@ const ArticlesContainer = () => {
   });
 
   useEffect(() => {
+    const source = axios.CancelToken.source();
+
     const fetchArticles = async () => {
       try {
         setIsError(false);
         setIsLoading(true);
-        const apiArticles = await getArticles(searchQueries);
+        const apiArticles = await getArticles(searchQueries, source);
         setArticles(apiArticles);
       } catch (err) {
         setIsError(err);
@@ -28,7 +31,7 @@ const ArticlesContainer = () => {
       }
     };
     fetchArticles();
-    return () => setArticles([]);
+    return () => source.cancel('User cancelled operation.');
   }, [searchQueries]);
 
   if (isError) {
