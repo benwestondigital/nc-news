@@ -16,7 +16,7 @@ This is an example project of a small reddit-esque clone built using the [React.
 
 ### Cloning
 
-Download the project into a local folder.
+Download the project into a local folder -
 
 - In your terminal:
 
