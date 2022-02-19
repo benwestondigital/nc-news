@@ -14,7 +14,6 @@ const PostComment = ({ article_id, setComments }) => {
   };
 
   const handleSubmit = async e => {
-    console.dir(e);
     e.preventDefault();
     if (!input) {
       return setWarning(true);
