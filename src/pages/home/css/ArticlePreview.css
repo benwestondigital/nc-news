@@ -6,6 +6,8 @@
   background-color: #fff;
   color: inherit;
   text-decoration: inherit;
+  -webkit-box-shadow: 1px 4px 15px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 4px 15px -2px rgba(0, 0, 0, 0.1);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: min-content auto auto auto;
@@ -14,6 +16,11 @@
     'title title title'
     'body body body'
     'votes ... commentcount';
+}
+
+.ArticlePreview:hover {
+  -webkit-box-shadow: 1px 4px 15px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 4px 15px 10px rgba(0, 0, 0, 0.1);
 }
 
 .ArticlePreview__author {
