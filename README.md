@@ -2,7 +2,7 @@
 
 ## Built by Ben Weston [Github](https://github.com/benwestondigital)
 
-![Project Image](https://imgur.com/a/KHGxfPj)
+![Project Image](https://i.imgur.com/JMthaEI.png)
 
 ## Description
 
