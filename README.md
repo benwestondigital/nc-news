@@ -1,4 +1,4 @@
-# Reddit-Clone-Project React Front End
+# Front End Project - Reddit-Clone built using React
 
 ## Built by Ben Weston [Github](https://github.com/benwestondigital)
 
