@@ -6,15 +6,16 @@
 
 ![Project Image](https://i.imgur.com/JMthaEI.png)
 
+## Website
+
+- Hosted link: [Netlify](https://reddit-clone-project.netlify.app/)
+
 ## Built by Ben Weston (https://github.com/benwestondigital)
 
 ## Description
 
 This Front-End project is Reddit-clone built using [React.js](https://reactjs.org/). The website retrieves information from an external server via a custom API created in an earlier [Back-End project](https://github.com/benwestondigital/reddit-clone-project).  You can find the links at the bottom of this readme. The styling is creating using vanilla css, and incorporates a Loading spinner from [React Spinkit](https://github.com/KyleAMathews/react-spinkit).
 
-### Website
-
-- Hosted link: [Netlify](https://reddit-clone-project.netlify.app/))
 
 ## Setting up / Installation Requirements
 
