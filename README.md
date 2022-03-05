@@ -2,6 +2,8 @@
 
 ## Built by Ben Weston [Github](https://github.com/benwestondigital)
 
+![Project Image](https://imgur.com/JMthaEI)
+
 ## Description
 
 This is an example project of a small reddit-esque clone built using the [React.js](https://reactjs.org/) framework. The website retrieves information from an external server via a custom API created in an earlier project.  You can find the links at the bottom of this readme. It mainly uses vanilla css styling, but does use a Loading spinner from [React Spinkit](https://github.com/KyleAMathews/react-spinkit)
