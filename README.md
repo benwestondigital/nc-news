@@ -1,8 +1,11 @@
 # Front End Project - Reddit-Clone built using React
 
-## Built by Ben Weston [Github](https://github.com/benwestondigital)
+![image](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![image](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 
 ![Project Image](https://i.imgur.com/JMthaEI.png)
+
+## Built by Ben Weston [Github](https://github.com/benwestondigital)
 
 ## Description
 
