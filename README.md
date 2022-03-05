@@ -6,9 +6,7 @@
 
 ![Project Image](https://i.imgur.com/JMthaEI.png)
 
-## Website
-
-- Hosted link: [Netlify](https://reddit-clone-project.netlify.app/)
+## Website [Hosted Link](https://reddit-clone-project.netlify.app/)
 
 ## Built by Ben Weston (https://github.com/benwestondigital)
 
