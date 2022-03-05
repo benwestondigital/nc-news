@@ -4,7 +4,12 @@
 ![image](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![image](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
 
-![Project Image](https://i.imgur.com/JMthaEI.png)
+
+### Demo 
+
+![Project Demo](https://user-images.githubusercontent.com/83911563/156888476-28cb8895-d631-4dd4-8b7a-0fa503e1acc7.gif)
+
+
 
 ## Website [Hosted Link](https://reddit-clone-project.netlify.app/)
 
