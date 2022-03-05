@@ -13,7 +13,7 @@
 
 ## Website [Hosted Link](https://reddit-clone-project.netlify.app/)
 
-## Built by Ben Weston (https://github.com/benwestondigital)
+### Built by Ben Weston [Github](https://github.com/benwestondigital)
 
 ## Description
 
