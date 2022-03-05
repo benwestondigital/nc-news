@@ -5,7 +5,7 @@
 
 ![Project Image](https://i.imgur.com/JMthaEI.png)
 
-## Built by Ben Weston [Github](https://github.com/benwestondigital)
+## Built by Ben Weston (https://github.com/benwestondigital)
 
 ## Description
 
