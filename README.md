@@ -2,6 +2,7 @@
 
 ![image](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![image](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![image](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
 
 ![Project Image](https://i.imgur.com/JMthaEI.png)
 
@@ -9,7 +10,11 @@
 
 ## Description
 
-This is an example project of a small reddit-esque clone built using the [React.js](https://reactjs.org/) framework. The website retrieves information from an external server via a custom API created in an earlier project.  You can find the links at the bottom of this readme. It mainly uses vanilla css styling, but does use a Loading spinner from [React Spinkit](https://github.com/KyleAMathews/react-spinkit)
+This Front-End project is Reddit-clone built using [React.js](https://reactjs.org/). The website retrieves information from an external server via a custom API created in an earlier [Back-End project](https://github.com/benwestondigital/reddit-clone-project).  You can find the links at the bottom of this readme. The styling is creating using vanilla css, and incorporates a Loading spinner from [React Spinkit](https://github.com/KyleAMathews/react-spinkit).
+
+### Website
+
+- Hosted link: [Netlify](https://reddit-clone-project.netlify.app/))
 
 ## Setting up / Installation Requirements
 
@@ -45,8 +50,6 @@ which will load up the website in your browser.
 
 ## Links
 
-The public link to the website can be found at: [Netlify](https://reddit-clone-project.netlify.app/)
-
-Backend API: [Heroku](https://ben-reddit-project.herokuapp.com/api)
+Hosted Backend API: [Heroku](https://ben-reddit-project.herokuapp.com/api)
 
 Backend repo: [Github](https://github.com/benwestondigital/reddit-clone-project)
