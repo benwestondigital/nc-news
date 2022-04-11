@@ -17,7 +17,7 @@ const Article = ({
   const { date, time } = dateTimeFormat(created_at);
 
   return (
-    <div className="Article">
+    <article className="Article">
       <p className="Article__author">{author}</p>
       <h3 className="Article__topic">{stringFormat(topic)}</h3>
       <h2 className="Article__title">{title}</h2>
@@ -27,7 +27,7 @@ const Article = ({
         {date} {time}
       </p>
       <Votes className="Article__votes" article_id={article_id} votes={votes} />
-    </div>
+    </article>
   );
 };
 

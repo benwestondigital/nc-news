@@ -10,7 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App__container">
-        <div className="App">
+        <main className="App">
           <Header />
           <Routes className="routes">
             <Route path="/" element={<ArticlesContainer />} />
@@ -33,7 +33,7 @@ function App() {
               }
             />
           </Routes>
-        </div>
+        </main>
       </div>
     </BrowserRouter>
   );
