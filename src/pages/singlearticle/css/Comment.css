@@ -63,13 +63,13 @@
   border-radius: 12px;
   border: 1.5px solid #d9534f;
   transition: transform 0.1s;
-  font-weight:600
+  font-weight: 600;
 }
 
 .Comment__delete:hover {
   background-color: #f87171;
   color: #fecaca;
-  transform:scale(1.1)
+  transform: scale(1.05);
 }
 
 .Comment__delete:active {
