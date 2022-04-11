@@ -82,3 +82,9 @@
     font-size: 1.5em;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .Article__datetime {
+    font-size: 0.8em;
+  }
+}
