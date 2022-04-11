@@ -9,15 +9,15 @@ import ErrorPage from './common/components/ErrorPage';
 function App() {
   return (
     <BrowserRouter>
-      <div className="App__container">
-        <main className="App">
+      <div className='App__container'>
+        <main className='App'>
           <Header />
-          <Routes className="routes">
-            <Route path="/" element={<ArticlesContainer />} />
-            <Route path="/articles/:article_id" element={<SingleArticle />} />
-            <Route path="/user" element={<User />} />
+          <Routes className='routes'>
+            <Route path='/' element={<ArticlesContainer />} />
+            <Route path='/articles/:article_id' element={<SingleArticle />} />
+            <Route path='/user' element={<User />} />
             <Route
-              path="*"
+              path='*'
               element={
                 <ErrorPage>
                   <p>404 - Page Not Found</p>
@@ -25,7 +25,7 @@ function App() {
               }
             />
             <Route
-              path="/articles/*"
+              path='/articles/*'
               element={
                 <ErrorPage>
                   <p>404 - Page Not Found</p>

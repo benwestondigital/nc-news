@@ -27,27 +27,29 @@ const PostComment = ({ article_id, setComments }) => {
 
   return (
     <>
-      <form className="form" onSubmit={handleSubmit}>
-        <div className="form__commentbox">
-          <label htmlFor="addComment">Comment:</label>
+      <form className='form' onSubmit={handleSubmit}>
+        <div className='form__commentbox'>
+          <label htmlFor='addComment'>Comment:</label>
           <textarea
-          className='form__textarea'
+            className='form__textarea'
             onChange={handleInput}
             value={input}
-            placeholder="Leave a comment"
-            id="addComment"
+            placeholder='Leave a comment'
+            id='addComment'
           ></textarea>
         </div>
         <button
           className={`form__button ${
             warning ? 'form__button--inactive' : 'form__button--active'
           }`}
-          type="submit"
+          type='submit'
         >
           Add Comment
         </button>
       </form>
-      <div className="form__warning">{warning && <p>Please enter a comment before posting.</p>}</div>
+      <div className='form__warning'>
+        {warning && <p>Please enter a comment before posting.</p>}
+      </div>
     </>
   );
 };

@@ -52,11 +52,16 @@ const Nav = ({ searchQueries, setSearchQueries }) => {
   return isLoading ? (
     <Loading />
   ) : (
-    <div className="Nav">
+    <div className='Nav'>
       <form>
-        <div className="form__dropdown">
-          <label htmlFor="topics">Topics:</label>
-          <select onChange={handleTopicChange} value={searchQueries.topic} className="select" id="topics">
+        <div className='form__dropdown'>
+          <label htmlFor='topics'>Topics:</label>
+          <select
+            onChange={handleTopicChange}
+            value={searchQueries.topic}
+            className='select'
+            id='topics'
+          >
             <option value={''}>All</option>
             {topics.map(topic => {
               return (
@@ -69,9 +74,14 @@ const Nav = ({ searchQueries, setSearchQueries }) => {
         </div>
       </form>
       <form>
-        <div className="form__dropdown">
-          <label htmlFor="sortby">Sort:</label>
-          <select onChange={handleSortChange} value={searchQueries.sort_by} className="select" id="sortby">
+        <div className='form__dropdown'>
+          <label htmlFor='sortby'>Sort:</label>
+          <select
+            onChange={handleSortChange}
+            value={searchQueries.sort_by}
+            className='select'
+            id='sortby'
+          >
             {sortBy.map(sort => {
               return (
                 <option key={sort} value={sort} name={sort}>

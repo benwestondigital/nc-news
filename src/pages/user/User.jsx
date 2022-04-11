@@ -79,18 +79,18 @@ const User = () => {
   return isLoading ? (
     <Loading />
   ) : (
-    <div className="User">
-      <main className="information">
+    <div className='User'>
+      <main className='information'>
         <h1>Hello {user}</h1>
-        <img className="User__img" src={image} alt="profile" />
+        <img className='User__img' src={image} alt='profile' />
         <form>
-          <div className="form__dropdown">
-            <label htmlFor="selectUser">Switch User:</label>
+          <div className='form__dropdown'>
+            <label htmlFor='selectUser'>Switch User:</label>
             <select
-              className="select"
+              className='select'
               value={user}
               onChange={changeLoggedInUser}
-              id="selectUser"
+              id='selectUser'
             >
               {uniqueUsers.map(uniqueUser => {
                 return (
@@ -102,7 +102,7 @@ const User = () => {
             </select>
           </div>
         </form>
-        <div className="articlestats">
+        <div className='articlestats'>
           <h3>Article Stats</h3>
           <p>
             Posted: <strong>{userStats.articlesPosted}</strong>

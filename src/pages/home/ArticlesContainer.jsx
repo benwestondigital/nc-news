@@ -41,7 +41,7 @@ const ArticlesContainer = () => {
   return isLoading ? (
     <Loading />
   ) : (
-    <div className="ArticlesContainer">
+    <div className='ArticlesContainer'>
       <Nav searchQueries={searchQueries} setSearchQueries={setSearchQueries} />
       {articles.map(article => {
         return <ArticlePreview key={article.article_id} data={article} />;

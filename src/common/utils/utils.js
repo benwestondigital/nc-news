@@ -29,7 +29,7 @@ export const dateTimeFormat = created_at => {
   return { date, time };
 };
 
-export const userDataMath = (userData) => {
+export const userDataMath = userData => {
   const articlesPosted = userData.length;
   const commentCount = userData.reduce((acc, obj) => {
     return acc + Number(obj.comment_count);
@@ -38,4 +38,4 @@ export const userDataMath = (userData) => {
     return acc + obj.votes;
   }, 0);
   return { articlesPosted, commentCount, voteCount };
-}
+};

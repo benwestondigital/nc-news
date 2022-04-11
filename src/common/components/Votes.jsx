@@ -33,18 +33,18 @@ const Votes = ({ article_id, votes }) => {
   }
 
   return (
-    <div className="Votes">
+    <div className='Votes'>
       <i
-        type="button"
+        type='button'
         onClick={handleVoteClick}
         id={'up'}
-        className="fas fa-arrow-circle-up"
+        className='fas fa-arrow-circle-up'
       ></i>
       <p>{votes + voteChange}</p>
       <i
         onClick={handleVoteClick}
         id={'down'}
-        className="fas fa-arrow-circle-down"
+        className='fas fa-arrow-circle-down'
       ></i>
     </div>
   );

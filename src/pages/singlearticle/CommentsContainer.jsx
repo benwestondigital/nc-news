@@ -34,7 +34,7 @@ const CommentsContainer = ({ article_id }) => {
   return isLoading ? (
     <Loading />
   ) : (
-    <section id="comments" className="CommentsContainer">
+    <section id='comments' className='CommentsContainer'>
       <PostComment article_id={article_id} setComments={setComments} />
       {comments.map(comment => {
         return (
