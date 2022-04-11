@@ -19,14 +19,20 @@
 .fa-arrow-circle-up {
   transition: color 0.1s ease-out;
 }
-.fa-arrow-circle-up:active {
+.fa-arrow-circle-up:active,
+.fa-arrow-circle-up:hover {
   color: rgb(9, 155, 9);
+}
+.fa-arrow-circle-up:active {
   transform: translateY(2px);
 }
 .fa-arrow-circle-down {
   transition: color 0.1s ease-out;
 }
-.fa-arrow-circle-down:active {
+.fa-arrow-circle-down:active,
+.fa-arrow-circle-down:hover {
   color: rgb(218, 52, 30);
+}
+.fa-arrow-circle-down:active {
   transform: translateY(2px);
 }
