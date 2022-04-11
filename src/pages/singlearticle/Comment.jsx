@@ -3,6 +3,7 @@ import { UserContext } from '../../common/contexts/User';
 import { useContext } from 'react';
 import { dateTimeFormat } from '../../common/utils/utils';
 import { deleteComment } from '../../common/utils/api';
+import DeleteButton from '../../common/components/DeleteButton';
 
 const Comment = ({
   data: { comment_id, created_at, author, body },
@@ -20,23 +21,13 @@ const Comment = ({
   };
 
   return (
-    <div className="Comment">
-      <p className="Comment__author">{author}</p>
-      <p className="Comment__body">{body}</p>
-      <p className="Comment__datetime">
+    <div className='Comment'>
+      <p className='Comment__author'>{author}</p>
+      <p className='Comment__body'>{body}</p>
+      <p className='Comment__datetime'>
         {date} {time}
       </p>
-      {renderDelete() && (
-        <div className="Comment__deletebox">
-        <button
-          type="button"
-          onClick={handleDelete}
-          className="Comment__delete"
-        >
-          Delete
-        </button>
-        </div>
-      )}
+      {renderDelete() && <DeleteButton handleDelete={handleDelete} />}
     </div>
   );
 };
