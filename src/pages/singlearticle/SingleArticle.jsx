@@ -6,13 +6,12 @@ import { useParams } from 'react-router-dom';
 import { getSingleArticle } from '../../common/utils/api';
 import axios from 'axios';
 
-
 const SingleArticle = () => {
   const [article, setArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(null);
   const { article_id } = useParams();
-  
+
   useEffect(() => {
     const source = axios.CancelToken.source();
     const fetchSingleArticle = async () => {
@@ -38,12 +37,10 @@ const SingleArticle = () => {
   return isLoading ? (
     <Loading />
   ) : (
-    <>
-      <div>
-        <Article data={article} setArticle={setArticle} />
-        <CommentsContainer article_id={article_id} />
-      </div>
-    </>
+    <div>
+      <Article data={article} setArticle={setArticle} />
+      <CommentsContainer article_id={article_id} />
+    </div>
   );
 };
 
