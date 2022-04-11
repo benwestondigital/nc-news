@@ -1,10 +1,24 @@
-# Reddit-Clone-Project React Front End
+# Front End Project - Reddit-Clone built using React
 
-## Built by Ben Weston [Github](https://github.com/benwestondigital)
+![image](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![image](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![image](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
+
+
+### Demo 
+
+![Project Demo](https://user-images.githubusercontent.com/83911563/156888476-28cb8895-d631-4dd4-8b7a-0fa503e1acc7.gif)
+
+
+
+## Website [Hosted Link](https://reddit-clone-project.netlify.app/)
+
+### Built by Ben Weston [Github](https://github.com/benwestondigital)
 
 ## Description
 
-This is an example project of a small reddit-esque clone built using the [React.js](https://reactjs.org/) framework. The website retrieves information from an external server via a custom API created in an earlier project.  You can find the links at the bottom of this readme. It mainly uses vanilla css styling, but does use a Loading spinner from [React Spinkit](https://github.com/KyleAMathews/react-spinkit)
+This Front-End project is Reddit-clone built using [React.js](https://reactjs.org/). The website retrieves information from an external server via a custom API created in an earlier [Back-End project](https://github.com/benwestondigital/reddit-clone-project).  You can find the links at the bottom of this readme. The styling is creating using vanilla css, and incorporates a Loading spinner from [React Spinkit](https://github.com/KyleAMathews/react-spinkit).
+
 
 ## Setting up / Installation Requirements
 
@@ -40,8 +54,6 @@ which will load up the website in your browser.
 
 ## Links
 
-The public link to the website can be found at: [Netlify](https://reddit-clone-project.netlify.app/)
-
-Backend API: [Heroku](https://ben-reddit-project.herokuapp.com/api)
+Hosted Backend API: [Heroku](https://ben-reddit-project.herokuapp.com/api)
 
 Backend repo: [Github](https://github.com/benwestondigital/reddit-clone-project)
