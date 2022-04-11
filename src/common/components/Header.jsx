@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div className='Header'>
       <Link
-        className='Header__box Header__logo Header__text-link far fa-newspaper'
+        className='Header__box Header__logo Header__text-link far fa-newspaper header--hover'
         to='/'
       ></Link>
       <h1>
@@ -15,7 +15,7 @@ const Header = () => {
       </h1>
       <Link
         to='/user'
-        className='Header__text-link Header__box Header__user far fa-user'
+        className='Header__text-link Header__box Header__user far fa-user header--hover'
       />
     </div>
   );

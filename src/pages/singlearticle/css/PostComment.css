@@ -12,15 +12,26 @@
   padding: 0.7em 0.6em;
   text-transform: uppercase;
   color: white;
+  font-weight: 600;
+  transition: transform 0.1s;
 }
 
 .form__button--active {
   background-color: #24a0ed;
 }
 
+.form__button--active:hover {
+  background-color: #7dd3fc;
+  transform: scale(1.05);
+}
+
 .form__button--inactive {
-  background-color: #efefed;
+  background-color: #d1d5db;
   color: #999898;
+}
+
+.form__button--inactive:hover {
+  opacity: 0.9;
 }
 
 label {

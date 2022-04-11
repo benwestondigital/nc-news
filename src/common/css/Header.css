@@ -26,6 +26,15 @@
   justify-content: center;
 }
 
+.header--hover {
+  color: white;
+  transition: color 0.2s
+}
+
+.header--hover:hover {
+  color: #9ca3af;
+}
+
 .far {
   font-size: 3rem;
 }
