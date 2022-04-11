@@ -11,7 +11,7 @@ const Comment = ({
 }) => {
   const { user } = useContext(UserContext);
   const { date, time } = dateTimeFormat(created_at);
-  const renderDelete = () => author === user;
+  const renderDelete = author === user;
 
   const handleDelete = async () => {
     setComments(currComments => {
@@ -27,7 +27,7 @@ const Comment = ({
       <p className='Comment__datetime'>
         {date} {time}
       </p>
-      {renderDelete() && <DeleteButton handleDelete={handleDelete} />}
+      {renderDelete && <DeleteButton handleDelete={handleDelete} />}
     </div>
   );
 };
